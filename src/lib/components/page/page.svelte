@@ -4,6 +4,6 @@
 	import './page.css';
 </script>
 
-<div class="page {$$restProps.class}">
+<div class="page">
 	<slot />
 </div>

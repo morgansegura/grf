@@ -30,7 +30,7 @@
 </script>
 
 <div
-	class="image {$$restProps.class}"
+	class="image"
 	data-cover={cover}
 	data-fill={fill}
 	style:--image-radius={mergedStyles['--radius']}

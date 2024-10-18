@@ -7,11 +7,6 @@
 		level: HeadingLevelProp | undefined = '1';
 </script>
 
-<svelte:element
-	this={`h${level}`}
-	data-level={display}
-	class="heading {$$restProps.class}"
-	{...$$restProps}
->
+<svelte:element this={`h${level}`} data-level={display} class="heading" {...$$restProps}>
 	<slot />
 </svelte:element>

@@ -12,7 +12,7 @@
 </script>
 
 <div
-	class="badge {$$restProps.class}"
+	class="badge"
 	data-intent={intent}
 	data-size={size}
 	data-shape={content?.innerText.length === 1 ? 'circle' : undefined}

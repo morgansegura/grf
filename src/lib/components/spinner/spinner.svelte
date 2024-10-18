@@ -12,6 +12,6 @@
 		size: SpinnerProps['size'] = undefined;
 </script>
 
-<div class="spinner {$$restProps.class}" data-invert={invert} data-size={size} role="progressbar">
+<div class="spinner" data-invert={invert} data-size={size} role="progressbar">
 	<div />
 </div>

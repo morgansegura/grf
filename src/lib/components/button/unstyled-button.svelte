@@ -1,9 +1,15 @@
 <script lang="ts">
 	import './unstyled-button.css';
+
+	interface UnstyledButtonProps {
+		className?: string;
+	}
+	let className: UnstyledButtonProps['className'] = $$restProps.class;
+	export { className as class };
 </script>
 
 <button
-	class="unstyled-button {$$restProps.class}"
+	class="unstyled-button {className}"
 	on:click
 	on:mouseover
 	on:focus

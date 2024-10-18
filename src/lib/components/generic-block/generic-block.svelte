@@ -38,7 +38,7 @@
 </script>
 
 <div
-	class="generic-block {$$restProps.class}"
+	class="generic-block"
 	style:--bg-color={mergedStyles['--bg-color']}
 	style:--radius={mergedStyles['--radius']}
 	data-appearance={appearance}

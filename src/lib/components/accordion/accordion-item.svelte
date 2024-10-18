@@ -14,7 +14,7 @@
 	const handleClick = () => (open = !open);
 </script>
 
-<div class="accordion-container {$$restProps.class}" {...$$restProps}>
+<div class="accordion-container" {...$$restProps}>
 	<Button class="unstyled-button accordion-header" on:click={handleClick}>
 		<Text class="text accordion-text">
 			<Truncate>

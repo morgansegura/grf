@@ -21,7 +21,7 @@
 
 <svelte:element
 	this={as}
-	class="stack {$$restProps.class}"
+	class="stack"
 	style:--stack-align={align}
 	style:--stack-direction={direction}
 	style:--stack-gap={typeof gap === 'number' ? toPx(gap) : gap}

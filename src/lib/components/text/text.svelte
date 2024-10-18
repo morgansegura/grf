@@ -138,7 +138,7 @@
 
 <svelte:element
 	this={as}
-	class="text {$$restProps.class}"
+	class="text"
 	style:--text-align={mergedStyles['--text-align']}
 	style:--text-color={mergedStyles['--text-color']}
 	style:--text-line-height={mergedStyles['--text-line-height']}

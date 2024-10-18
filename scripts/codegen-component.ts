@@ -40,7 +40,7 @@ const COMPONENT_TEMPLATE = (name: string) => `
 		</script>
 
 
-		<div class="${toKebabCase(name)} {$$restProps.class}" {...$$restProps}>
+		<div class="${toKebabCase(name)}" {...$$restProps}>
 		  <slot />
 		</div>
 `;

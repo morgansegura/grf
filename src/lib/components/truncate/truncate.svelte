@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="truncate {$$restProps.class}"
+	class="truncate"
 	style:--truncate-line-limit={customProperties['--truncate-line-limit']}
 	{title}
 >

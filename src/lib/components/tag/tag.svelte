@@ -29,7 +29,7 @@
 </script>
 
 <div
-	class="tag {$$restProps.class}"
+	class="tag"
 	style:--tag-bg-color={mergedStyles['--tag-bg-color']}
 	style:--tag-text-color={mergedStyles['--tag-text-color']}
 	{...$$restProps}

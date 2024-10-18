@@ -10,6 +10,7 @@
 		active?: boolean;
 		appearance?: 'primary' | 'secondary' | 'tertiary' | 'control' | 'minimal' | 'link';
 		busy?: boolean;
+		className?: string;
 		fill?: boolean;
 		disabled?: boolean;
 		hidden?: boolean;
@@ -32,6 +33,9 @@
 		underline: ButtonProps['underline'] = false,
 		variant: ButtonProps['variant'] = undefined;
 
+	let className: ButtonProps['className'] = $$restProps.class;
+	export { className as class };
+
 	/**
 	 * Determines the size of the spinner based on the size of
 	 * the button.
@@ -52,10 +56,7 @@
 	/**
 	 * Determines if the spinner should be inverted or not.
 	 */
-	function getSpinnerInvertedness(
-		// appearance: ButtonProps['appearance'],
-		invert: ButtonProps['invert']
-	): boolean {
+	function getSpinnerInvertedness(invert: ButtonProps['invert']): boolean {
 		let inverted = invert;
 		switch (appearance) {
 			case 'primary':
@@ -79,7 +80,7 @@
 <When condition={$$restProps.href}>
 	<a
 		href={$$restProps.href}
-		class="button {$$restProps.class}"
+		class="button {className}"
 		data-appearance={appearance}
 		data-busy={busy}
 		data-fill={fill}
@@ -106,7 +107,7 @@
 </When>
 <When condition={!$$restProps.href}>
 	<button
-		class="button {$$restProps.class}"
+		class="button {className}"
 		on:click
 		on:mouseover
 		on:focus

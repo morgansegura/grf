@@ -11,11 +11,6 @@
 		container: PageSectionProps['container'] = false;
 </script>
 
-<svelte:element
-	this={as}
-	class="page-section {$$restProps.class}"
-	data-container={container}
-	{...$$restProps}
->
+<svelte:element this={as} class="page-section" data-container={container} {...$$restProps}>
 	<slot />
 </svelte:element>

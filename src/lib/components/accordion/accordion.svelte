@@ -2,6 +2,6 @@
 	import './accordion.css';
 </script>
 
-<div class="accordion {$$restProps.class}" {...$$restProps}>
+<div class="accordion" {...$$restProps}>
 	<slot />
 </div>

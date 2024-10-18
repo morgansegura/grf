@@ -16,7 +16,7 @@
 </script>
 
 <div
-	class="divider {$$restProps.class}"
+	class="divider"
 	data-appearance={appearance}
 	data-spacing={spacing}
 	style:--divider-height={height}

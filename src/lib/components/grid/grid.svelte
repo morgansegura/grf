@@ -32,7 +32,7 @@
 </script>
 
 <div
-	class="grid {$$restProps.class}"
+	class="grid"
 	style:--grid-column-count-default={mergedStyles['--grid-column-count-default']}
 	style:--grid-column-count-sm={mergedStyles['--grid-column-count-sm']}
 	style:--grid-column-count-md={mergedStyles['--grid-column-count-md']}

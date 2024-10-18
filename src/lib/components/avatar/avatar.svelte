@@ -15,7 +15,7 @@
 </script>
 
 <div
-	class="avatar {$$restProps.class}"
+	class="avatar"
 	style:--avatar-color={color}
 	style:--avatar-bgcolor={bgcolor}
 	data-size={size}

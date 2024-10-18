@@ -1,11 +1,11 @@
 .button {
-	--button-color-primary: var(--color-grey-900);
-	--button-color-primary-hover: var(--color-grey-700);
-	--button-color-primary-active: var(--color-grey-800);
+	--button-color-primary: var(--color-neutral-900);
+	--button-color-primary-hover: var(--color-neutral-700);
+	--button-color-primary-active: var(--color-neutral-800);
 
-	--button-color-primary-offset: var(--color-grey-100);
-	--button-color-primary-offset-hover: var(--color-grey-200);
-	--button-color-primary-offset-active: var(--color-grey-300);
+	--button-color-primary-offset: var(--color-neutral-100);
+	--button-color-primary-offset-hover: var(--color-neutral-200);
+	--button-color-primary-offset-active: var(--color-neutral-300);
 
 	--button-padding: var(--size-2-5);
 	--button-height: var(--size-4-5);
@@ -67,7 +67,7 @@
 	}
 
 	&:disabled {
-		filter: grayscale(100%);
+		/* filter: grayscale(100%); */
 		opacity: var(--opacity-50);
 		pointer-events: none;
 	}

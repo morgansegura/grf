@@ -18,7 +18,7 @@
 		onDismiss: AlertProps['onDismiss'] = undefined;
 </script>
 
-<div class="alert {$$restProps.class} {onDismiss && 'alert-dismissable'}" data-intent={intent}>
+<div class="alert {onDismiss && 'alert-dismissable'}" data-intent={intent}>
 	<Text align="center" size="md">
 		<slot />
 	</Text>
