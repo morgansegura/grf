@@ -1,0 +1,25 @@
+<script lang="ts">
+	import type { SizeProp } from '$components/component';
+	import './divider.css';
+
+	interface DividerProps {
+		appearance?: 'solid' | 'dotted' | 'dashed';
+		color?: string;
+		height?: string;
+		spacing?: Extract<SizeProp, 'sm' | 'md' | 'lg'> | 'none';
+	}
+
+	export let appearance: DividerProps['appearance'] = undefined,
+		color: DividerProps['color'] = undefined,
+		height: DividerProps['height'] = undefined,
+		spacing: DividerProps['spacing'] = undefined;
+</script>
+
+<div
+	class="divider {$$restProps.class}"
+	data-appearance={appearance}
+	data-spacing={spacing}
+	style:--divider-height={height}
+	style:--divider-color={color}
+	{...$$restProps}
+/>

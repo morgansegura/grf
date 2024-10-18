@@ -1,0 +1,22 @@
+.page {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+
+	.page-body {
+		flex: 1 0 auto;
+	}
+	.page-header {
+	}
+	.page-footer {
+	}
+	.page-section {
+		&[data-container='true'] {
+			max-width: var(--breakpoint-xl);
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: var(--size-1-5);
+			padding-right: var(--size-1-5);
+		}
+	}
+}
