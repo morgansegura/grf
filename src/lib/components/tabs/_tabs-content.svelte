@@ -12,7 +12,7 @@
 
 <div class="tabs-content" {...$$restProps}>
 	<When condition={Boolean(contentType === 'html')}>
-		{@html content}
+		{content}
 	</When>
 	<When condition={Boolean(contentType === 'unist')}>
 		<p>Units Body Content</p>

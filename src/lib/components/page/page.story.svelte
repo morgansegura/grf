@@ -2,7 +2,6 @@
 	import Footer from '$components/_layout/footer/footer.svelte';
 	import Header from '$components/_layout/header/header.svelte';
 
-	import { useBreakpoints } from '$src/hooks.client';
 	import Stack from '$components/stack/stack.svelte';
 	import GenericBlock from '$components/generic-block/generic-block.svelte';
 	import { tok } from '$src/lib/utils/style';
@@ -15,16 +14,6 @@
 	import Section from './page-section.svelte';
 
 	export let Hst;
-
-	const { xs, lg } = useBreakpoints();
-	$: desktopMenu = [
-		{
-			href: '/',
-			label: 'Home',
-			target: '_blank',
-			'data-title': 'test data title'
-		}
-	];
 </script>
 
 <svelte:component this={Hst.Story} title="Component/Page layout">
@@ -60,6 +49,7 @@
 								<Image
 									radius={tok('radius', 'xl')}
 									src="https://images.pexels.com/photos/28588325/pexels-photo-28588325/free-photo-of-close-up-of-lush-green-prickly-pear-cacti.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+									alt="Always needs an alt"
 								/>
 							</div>
 						</Grid>

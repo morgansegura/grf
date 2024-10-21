@@ -2,21 +2,26 @@
 	import type { IntentProp, SizeProp } from '../component';
 	import './badge.css';
 
-	export let intent: Extract<IntentProp, 'notification' | 'neutral' | 'success'> | undefined =
-			undefined,
-		size: Extract<SizeProp, 'sm' | 'md' | 'lg'> | undefined = undefined;
+	interface BadgeProps {
+		content?: HTMLSpanElement;
+		intent: Extract<IntentProp, 'notification' | 'neutral' | 'success'>;
+		size: Extract<SizeProp, 'sm' | 'md' | 'lg'>;
+	}
 
-	let content: any;
+	export let intent: BadgeProps['intent'] = 'notification',
+		size: BadgeProps['size'] = 'md';
 
-	console.log({ $$props });
+	let content: BadgeProps['content'];
 </script>
 
 <div
 	class="badge"
 	data-intent={intent}
 	data-size={size}
-	data-shape={content?.innerText.length === 1 ? 'circle' : undefined}
+	data-shape={content?.innerText?.length === 1 ? 'circle' : undefined}
 	{...$$restProps}
 >
-	<span bind:this={content}><slot /></span>
+	<span bind:this={content}>
+		<slot />
+	</span>
 </div>

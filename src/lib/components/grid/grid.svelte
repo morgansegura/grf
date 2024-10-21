@@ -1,13 +1,20 @@
 <script lang="ts">
 	import { createResponsivePropCSSProperties, definedProps } from '$src/lib/utils/components';
-	import type { ResponsiveProp } from '../component';
+
 	import './grid.css';
 
-	export let columns: ResponsiveProp<number> | undefined = undefined,
-		gap: ResponsiveProp<number> | ResponsiveProp<string> | undefined = undefined;
+	import type { ResponsiveProp } from '$components/component';
 
-	function getCustomProperties({ gap, columns }: any) {
-		const base: Record<string, any> = {};
+	interface GridProps {
+		columns?: ResponsiveProp<number>;
+		gap?: ResponsiveProp<number> | ResponsiveProp<string>;
+	}
+
+	export let columns: GridProps['columns'] = undefined,
+		gap: GridProps['gap'] = undefined;
+
+	function getCustomProperties({ gap, columns }: GridProps) {
+		const base: Record<string, unknown> = {};
 
 		if (gap) {
 			base['--grid-gap'] = gap;

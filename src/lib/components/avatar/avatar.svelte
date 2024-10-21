@@ -7,11 +7,19 @@
 
 	import './avatar.css';
 
-	export let name: string | undefined = undefined,
-		bgcolor: string | undefined = undefined,
-		color: string | undefined = undefined,
-		size: Extract<SizeProp, 'sm' | 'md' | 'lg'> | undefined = undefined,
-		src: string | undefined = undefined;
+	interface AvatarProps {
+		name: string;
+		bgcolor?: string;
+		color?: string;
+		size?: Extract<SizeProp, 'sm' | 'md' | 'lg'>;
+		src?: string;
+	}
+
+	export let color: AvatarProps['color'] = undefined,
+		bgcolor: AvatarProps['bgcolor'] = undefined,
+		name: AvatarProps['name'] = 'Avatar',
+		size: AvatarProps['size'] = undefined,
+		src: AvatarProps['src'] = undefined;
 </script>
 
 <div

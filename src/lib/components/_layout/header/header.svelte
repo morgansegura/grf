@@ -3,7 +3,6 @@
 
 	import Button from '$components/button/button.svelte';
 	import Divider from '$components/divider/divider.svelte';
-	import GenericBlock from '$components/generic-block/generic-block.svelte';
 	import Logo from '$components/_layout/logo/logo.svelte';
 	import PageSection from '$components/page/page-section.svelte';
 	import Stack from '$components/stack/stack.svelte';

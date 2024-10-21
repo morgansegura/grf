@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Stack from '$components/stack/stack.svelte';
 	import { tok } from '$src/lib/utils/style';
-	import GenericBlock from '../generic-block/generic-block.svelte';
 	import Avatar from './avatar.svelte';
 
 	export let Hst;

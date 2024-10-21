@@ -4,10 +4,9 @@
 
 	import Button from '$components/button/unstyled-button.svelte';
 	import Text from '$components/text/text.svelte';
+	import Truncate from '$components/truncate/truncate.svelte';
 
 	import './accordion.css';
-	import Stack from '../stack/stack.svelte';
-	import Truncate from '../truncate/truncate.svelte';
 
 	let open: boolean = false;
 

@@ -1,39 +1,28 @@
 <script lang="ts">
 	import './image.css';
 
-	import type { RadiusProp } from '../component';
-	import { definedProps } from '$src/lib/utils/components';
+	import type { RadiusProp } from '$components/component';
 
-	export let alt: string = 'Description for this asset.',
-		cover: boolean = false,
-		fill: boolean = false,
-		radius: RadiusProp | string | undefined = undefined,
-		src: string | undefined = undefined;
-
-	function getCustomProperties({ radius }: any) {
-		const customProperties: Record<string, any> = {};
-
-		if (radius) {
-			customProperties['--radius'] = radius;
-		}
-
-		return customProperties;
+	interface ImageProps {
+		alt: string;
+		cover?: boolean;
+		fill?: boolean;
+		radius?: RadiusProp | string;
+		src: string;
 	}
 
-	const mergedStyles = {
-		...getCustomProperties({
-			...definedProps({
-				radius
-			})
-		})
-	};
+	export let alt: ImageProps['alt'],
+		cover: ImageProps['cover'] = false,
+		fill: ImageProps['fill'] = false,
+		radius: ImageProps['radius'] = undefined,
+		src: ImageProps['src'];
 </script>
 
 <div
 	class="image"
 	data-cover={cover}
 	data-fill={fill}
-	style:--image-radius={mergedStyles['--radius']}
+	style:--image-radius={radius}
 	data-title={alt}
 >
 	<img {src} {alt} {...$$restProps} />
