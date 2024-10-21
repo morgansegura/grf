@@ -25,7 +25,6 @@
 		tabItems: TabsProps['tabItems'] = [];
 
 	const handleClick = (tabValue: number) => () => {
-		console.log('clicked');
 		return (activeTab = tabValue);
 	};
 </script>
