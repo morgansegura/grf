@@ -1,4 +1,4 @@
-import * as api from '$lib/utils/api';
+import * as api from '$src/lib/utils/api';
 import { error } from '@sveltejs/kit';
 
 export async function load({
@@ -9,7 +9,8 @@ export async function load({
 	params?: Record<string, string>;
 }) {
 	const slug = 'index';
-	const pageReq = await api.get(fetch, `pages?where[slug][equals]=${slug}&draft=false`, params);
+	const url = `pages?where[slug][equals]=${slug}`;
+	const pageReq = await api.get(fetch, url, params);
 
 	const pageData = pageReq.docs[0];
 
@@ -19,5 +20,9 @@ export async function load({
 		});
 	}
 
-	return { page: pageData };
+	return {
+		url: `${import.meta.env.VITE_BACKEND_SITE_URL}`,
+		initialData: pageData,
+		page: pageData
+	};
 }

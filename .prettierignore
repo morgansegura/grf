@@ -2,3 +2,5 @@
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+src/graphql/types.ts
+src/types/payload-types.ts

@@ -18,7 +18,8 @@ export async function get(
 		headers: {
 			'Content-Type': 'application/json',
 			Accept: 'application/json'
-		}
+		},
+		credentials: 'include'
 	});
 
 	const data = await response.json();

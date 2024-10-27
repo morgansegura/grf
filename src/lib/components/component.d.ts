@@ -90,6 +90,7 @@ export type TextAsProp =
 	| 'small'
 	| 'span'
 	| 'strong'
+	| 'em'
 	| 'th'
 	| 'td';
 

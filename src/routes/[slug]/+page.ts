@@ -1,5 +1,6 @@
-import * as api from '$lib/utils/api';
+import * as api from '$src/lib/utils/api';
 import { error } from '@sveltejs/kit';
+import { LANDING_PAGE_MOCK } from '$src/mocks/data/landing.mock';
 
 export async function load({
 	fetch,
@@ -8,8 +9,10 @@ export async function load({
 	fetch: typeof globalThis.fetch;
 	params?: Record<string, string>;
 }) {
-	const slug = params?.slug || 'index';
-	const pageReq = await api.get(fetch, `pages?where[slug][equals]=${slug}&draft=false`, params);
+	const slug = params?.slug;
+	const url = `pages?where[slug][equals]=${slug}&draft=false`;
+	const pageReq = await api.get(fetch, url, params);
+	const initialData = LANDING_PAGE_MOCK;
 
 	const pageData = pageReq.docs[0];
 
@@ -19,5 +22,9 @@ export async function load({
 		});
 	}
 
-	return { page: pageData };
+	return {
+		url: `${import.meta.env.VITE_FRONTEND_SITE_URL}/api/${url}`,
+		initialData,
+		page: pageData
+	};
 }

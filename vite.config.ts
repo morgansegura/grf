@@ -10,6 +10,20 @@ export default defineConfig({
 			autoInstall: true
 		})
 	],
+	server: {
+		proxy: {
+			'/api': {
+				target: `${process.env.VITE_BACKEND_SITE_URL}`,
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/api/, '/api')
+			},
+			'/admin': {
+				target: `${process.env.VITE_BACKEND_SITE_URL}`,
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/admin/, '/admin')
+			}
+		}
+	},
 	test: {
 		globals: true,
 		environment: 'jsdom',

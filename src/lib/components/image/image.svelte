@@ -2,13 +2,14 @@
 	import './image.css';
 
 	import type { RadiusProp } from '$components/component';
+	import When from '$components/when/when.svelte';
 
 	interface ImageProps {
-		alt: string;
+		alt?: string;
 		cover?: boolean;
 		fill?: boolean;
 		radius?: RadiusProp | string;
-		src: string;
+		src?: string;
 	}
 
 	export let alt: ImageProps['alt'],
@@ -18,12 +19,14 @@
 		src: ImageProps['src'];
 </script>
 
-<div
-	class="image"
-	data-cover={cover}
-	data-fill={fill}
-	style:--image-radius={radius}
-	data-title={alt}
->
-	<img {src} {alt} {...$$restProps} />
-</div>
+<When condition={Boolean(src?.length)}>
+	<div
+		class="image"
+		data-cover={cover}
+		data-fill={fill}
+		style:--image-radius={radius}
+		data-title={alt}
+	>
+		<img {src} {alt} {...$$restProps} />
+	</div>
+</When>

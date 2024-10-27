@@ -2,6 +2,7 @@
 	import Heading from '$components/heading/heading.svelte';
 	import Stack from '$components/stack/stack.svelte';
 	import Text from '$components/text/text.svelte';
+	// import Image from '$components/image/image.svelte';
 
 	import './hero.css';
 
@@ -14,11 +15,14 @@
 		heading: HeroProps['heading'] = undefined;
 </script>
 
-<Stack>
-	<Heading>
-		{heading}
-	</Heading>
-	<Text>
-		{description}
-	</Text>
+<Stack {...$$restProps}>
+	<Stack>
+		<Heading>
+			{heading}
+		</Heading>
+		<Text>
+			{description}
+		</Text>
+	</Stack>
+	<Stack></Stack>
 </Stack>
