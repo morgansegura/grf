@@ -19,28 +19,20 @@
 	const { unsubscribe, subscribe, ready } = livePreview;
 
 	export let depth: number = 1;
-	export let initialData: Page[] = [];
+	export let initialData: Page;
 
 	// Writable stores for data and loading state
-	const data = writable<Page[]>(initialData);
+	const data = writable<Page>(initialData);
 	const isLoading = writable<boolean>(true);
-	const serverURL = `${import.meta.env.VITE_BACKEND_SITE_URL}/admin`;
+	const serverURL = `${import.meta.env.VITE_BACKEND_SITE_URL}`;
+	// const frontendURL = `${import.meta.env.VITE_FRONTEND_SITE_URL}`;
 
 	let hasSentReadyMessage = false;
 
 	let subscription: ReturnType<typeof subscribe>;
 
-	// export function ready(options: { serverURL: string }) {
-	// 	if (options.serverURL === `${import.meta.env.VITE_BACKEND_SITE_URL}`) {
-	// 		options.serverURL = `${import.meta.env.VITE_FRONTEND_SITE_URL}`;
-	// 	}
-
-	// 	// Call the original ready function with modified options
-	// 	livePreview.ready(options);
-	// }
-
 	// Callback function when live preview data changes
-	const onChange = (mergedData: Page[]): void => {
+	const onChange = (mergedData: Page): void => {
 		isLoading.set(false);
 		data.set(mergedData);
 		data.subscribe((value) => value);
@@ -66,28 +58,25 @@
 
 	const clear = (): void => {
 		data.set(initialData);
-		isLoading.set(true); // Reset loading to true
+		isLoading.set(true);
 	};
 
 	onMount(() => {
-		subscription = subscribeToPreview(); // Subscribe when the component mounts
+		subscription = subscribeToPreview();
 	});
 
 	onDestroy(() => {
 		if (subscription) {
-			unsubscribe(subscription); // Clean up when the component is destroyed
+			unsubscribe(subscription);
 			clear();
 		}
 	});
 </script>
 
-<!-- UI Logic to show data based on loading state -->
 {#if Boolean($isLoading)}
 	<slot name="loading" />
 {:else}
-	<When condition={Boolean($data)}>
-		{#each $data as data}
-			{console.log(data)}
-		{/each}
+	<When condition={Boolean($data?.richText?.root)}>
+		<RichText props={$data?.richText?.root} />
 	</When>
 {/if}

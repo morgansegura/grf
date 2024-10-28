@@ -9,6 +9,10 @@
 	text-align: var(--text-align);
 	margin: 0;
 
+	&[data-underline='true'] {
+		text-decoration: underline;
+	}
+
 	a {
 		color: inherit;
 	}

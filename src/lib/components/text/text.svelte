@@ -27,6 +27,7 @@
 		spacing?: LetterSpacingProp;
 		title?: string;
 		transform?: TextTransformProp;
+		underline?: boolean;
 		weight?: FontWeightProp;
 	}
 	/**
@@ -59,6 +60,7 @@
 		size?: Extract<SizeProp, 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'>;
 		spacing?: LetterSpacingProp;
 		transform?: TextTransformProp;
+		underline?: boolean;
 		weight?: FontWeightProp;
 	}
 	export let align: TextComponentProps['align'] = undefined,
@@ -69,6 +71,7 @@
 		preset: TextComponentProps['preset'] = undefined,
 		size: TextComponentProps['size'] = undefined,
 		spacing: TextComponentProps['spacing'] = undefined,
+		underline: TextComponentProps['underline'] = undefined,
 		transform: TextComponentProps['transform'] = undefined,
 		weight: TextComponentProps['weight'] = undefined;
 
@@ -134,11 +137,14 @@
 			})
 		})
 	};
+
+	// console.log($$props);
 </script>
 
 <svelte:element
 	this={as}
 	class="text"
+	data-underline={underline}
 	style:--text-align={mergedStyles['--text-align']}
 	style:--text-color={mergedStyles['--text-color']}
 	style:--text-line-height={mergedStyles['--text-line-height']}

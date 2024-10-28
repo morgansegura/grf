@@ -26,6 +26,7 @@ export type Access = {
   media?: Maybe<MediaAccess>;
   pages?: Maybe<PagesAccess>;
   payload_preferences?: Maybe<Payload_PreferencesAccess>;
+  tenants?: Maybe<TenantsAccess>;
   users?: Maybe<UsersAccess>;
 };
 
@@ -424,71 +425,6 @@ export type Category_Where_Or = {
   title?: InputMaybe<Category_Title_Operator>;
   updatedAt?: InputMaybe<Category_UpdatedAt_Operator>;
 };
-
-export type Content = {
-  __typename?: 'Content';
-  accentLine?: Maybe<Scalars['Boolean']['output']>;
-  accentLineAlignment?: Maybe<Content_AccentLineAlignment>;
-  backgroundColor?: Maybe<Content_BackgroundColor>;
-  blockName?: Maybe<Scalars['String']['output']>;
-  blockType?: Maybe<Scalars['String']['output']>;
-  columns?: Maybe<Array<Content_Columns>>;
-  id?: Maybe<Scalars['String']['output']>;
-  paddingBottom?: Maybe<Content_PaddingBottom>;
-  paddingTop?: Maybe<Content_PaddingTop>;
-};
-
-export type Content_Columns = {
-  __typename?: 'Content_Columns';
-  alignment?: Maybe<Content_Columns_Alignment>;
-  content?: Maybe<Scalars['JSON']['output']>;
-  id?: Maybe<Scalars['String']['output']>;
-  width?: Maybe<Content_Columns_Width>;
-};
-
-
-export type Content_ColumnsContentArgs = {
-  depth?: InputMaybe<Scalars['Int']['input']>;
-};
-
-export enum Content_Columns_Alignment {
-  Center = 'center',
-  Left = 'left',
-  Right = 'right'
-}
-
-export enum Content_Columns_Width {
-  Full = 'full',
-  Half = 'half',
-  OneThird = 'oneThird',
-  TwoThirds = 'twoThirds'
-}
-
-export enum Content_AccentLineAlignment {
-  Left = 'left',
-  Right = 'right'
-}
-
-export enum Content_BackgroundColor {
-  Blue = 'blue',
-  None = 'none',
-  Orange = 'orange',
-  Red = 'red'
-}
-
-export enum Content_PaddingBottom {
-  Large = 'large',
-  Medium = 'medium',
-  None = 'none',
-  Small = 'small'
-}
-
-export enum Content_PaddingTop {
-  Large = 'large',
-  Medium = 'medium',
-  None = 'none',
-  Small = 'small'
-}
 
 export type Customer = {
   __typename?: 'Customer';
@@ -1033,371 +969,6 @@ export type CustomersUpdateDocAccess = {
   permission: Scalars['Boolean']['output'];
   where?: Maybe<Scalars['JSONObject']['output']>;
 };
-
-export type Image = {
-  __typename?: 'Image';
-  blockName?: Maybe<Scalars['String']['output']>;
-  blockType?: Maybe<Scalars['String']['output']>;
-  caption?: Maybe<Scalars['JSON']['output']>;
-  id?: Maybe<Scalars['String']['output']>;
-  image: Media;
-  type?: Maybe<Image_Type>;
-};
-
-
-export type ImageCaptionArgs = {
-  depth?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-export type ImageImageArgs = {
-  where?: InputMaybe<Image_Image_Where>;
-};
-
-export type Image_Image_Alt_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_CreatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['DateTime']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>;
-  less_than?: InputMaybe<Scalars['DateTime']['input']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>;
-  like?: InputMaybe<Scalars['DateTime']['input']>;
-  not_equals?: InputMaybe<Scalars['DateTime']['input']>;
-};
-
-export type Image_Image_Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Image_Image_FocalX_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Image_Image_FocalY_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Image_Image_Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Image_Image_Id_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_Sizes__Card__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_Sizes__Card__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Image_Image_Sizes__Card__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Image_Image_Sizes__Card__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_Sizes__Card__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_Sizes__Card__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Image_Image_Sizes__Feature__Filename_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_Sizes__Feature__Filesize_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Image_Image_Sizes__Feature__Height_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Image_Image_Sizes__Feature__MimeType_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_Sizes__Feature__Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_Sizes__Feature__Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Image_Image_UpdatedAt_Operator = {
-  equals?: InputMaybe<Scalars['DateTime']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['DateTime']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>;
-  less_than?: InputMaybe<Scalars['DateTime']['input']>;
-  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>;
-  like?: InputMaybe<Scalars['DateTime']['input']>;
-  not_equals?: InputMaybe<Scalars['DateTime']['input']>;
-};
-
-export type Image_Image_Url_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  contains?: InputMaybe<Scalars['String']['input']>;
-  equals?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  not_equals?: InputMaybe<Scalars['String']['input']>;
-  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Image_Image_Where = {
-  AND?: InputMaybe<Array<InputMaybe<Image_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<Image_Image_Where_Or>>>;
-  alt?: InputMaybe<Image_Image_Alt_Operator>;
-  createdAt?: InputMaybe<Image_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<Image_Image_Filename_Operator>;
-  filesize?: InputMaybe<Image_Image_Filesize_Operator>;
-  focalX?: InputMaybe<Image_Image_FocalX_Operator>;
-  focalY?: InputMaybe<Image_Image_FocalY_Operator>;
-  height?: InputMaybe<Image_Image_Height_Operator>;
-  id?: InputMaybe<Image_Image_Id_Operator>;
-  mimeType?: InputMaybe<Image_Image_MimeType_Operator>;
-  sizes__card__filename?: InputMaybe<Image_Image_Sizes__Card__Filename_Operator>;
-  sizes__card__filesize?: InputMaybe<Image_Image_Sizes__Card__Filesize_Operator>;
-  sizes__card__height?: InputMaybe<Image_Image_Sizes__Card__Height_Operator>;
-  sizes__card__mimeType?: InputMaybe<Image_Image_Sizes__Card__MimeType_Operator>;
-  sizes__card__url?: InputMaybe<Image_Image_Sizes__Card__Url_Operator>;
-  sizes__card__width?: InputMaybe<Image_Image_Sizes__Card__Width_Operator>;
-  sizes__feature__filename?: InputMaybe<Image_Image_Sizes__Feature__Filename_Operator>;
-  sizes__feature__filesize?: InputMaybe<Image_Image_Sizes__Feature__Filesize_Operator>;
-  sizes__feature__height?: InputMaybe<Image_Image_Sizes__Feature__Height_Operator>;
-  sizes__feature__mimeType?: InputMaybe<Image_Image_Sizes__Feature__MimeType_Operator>;
-  sizes__feature__url?: InputMaybe<Image_Image_Sizes__Feature__Url_Operator>;
-  sizes__feature__width?: InputMaybe<Image_Image_Sizes__Feature__Width_Operator>;
-  updatedAt?: InputMaybe<Image_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<Image_Image_Url_Operator>;
-  width?: InputMaybe<Image_Image_Width_Operator>;
-};
-
-export type Image_Image_Where_And = {
-  AND?: InputMaybe<Array<InputMaybe<Image_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<Image_Image_Where_Or>>>;
-  alt?: InputMaybe<Image_Image_Alt_Operator>;
-  createdAt?: InputMaybe<Image_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<Image_Image_Filename_Operator>;
-  filesize?: InputMaybe<Image_Image_Filesize_Operator>;
-  focalX?: InputMaybe<Image_Image_FocalX_Operator>;
-  focalY?: InputMaybe<Image_Image_FocalY_Operator>;
-  height?: InputMaybe<Image_Image_Height_Operator>;
-  id?: InputMaybe<Image_Image_Id_Operator>;
-  mimeType?: InputMaybe<Image_Image_MimeType_Operator>;
-  sizes__card__filename?: InputMaybe<Image_Image_Sizes__Card__Filename_Operator>;
-  sizes__card__filesize?: InputMaybe<Image_Image_Sizes__Card__Filesize_Operator>;
-  sizes__card__height?: InputMaybe<Image_Image_Sizes__Card__Height_Operator>;
-  sizes__card__mimeType?: InputMaybe<Image_Image_Sizes__Card__MimeType_Operator>;
-  sizes__card__url?: InputMaybe<Image_Image_Sizes__Card__Url_Operator>;
-  sizes__card__width?: InputMaybe<Image_Image_Sizes__Card__Width_Operator>;
-  sizes__feature__filename?: InputMaybe<Image_Image_Sizes__Feature__Filename_Operator>;
-  sizes__feature__filesize?: InputMaybe<Image_Image_Sizes__Feature__Filesize_Operator>;
-  sizes__feature__height?: InputMaybe<Image_Image_Sizes__Feature__Height_Operator>;
-  sizes__feature__mimeType?: InputMaybe<Image_Image_Sizes__Feature__MimeType_Operator>;
-  sizes__feature__url?: InputMaybe<Image_Image_Sizes__Feature__Url_Operator>;
-  sizes__feature__width?: InputMaybe<Image_Image_Sizes__Feature__Width_Operator>;
-  updatedAt?: InputMaybe<Image_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<Image_Image_Url_Operator>;
-  width?: InputMaybe<Image_Image_Width_Operator>;
-};
-
-export type Image_Image_Where_Or = {
-  AND?: InputMaybe<Array<InputMaybe<Image_Image_Where_And>>>;
-  OR?: InputMaybe<Array<InputMaybe<Image_Image_Where_Or>>>;
-  alt?: InputMaybe<Image_Image_Alt_Operator>;
-  createdAt?: InputMaybe<Image_Image_CreatedAt_Operator>;
-  filename?: InputMaybe<Image_Image_Filename_Operator>;
-  filesize?: InputMaybe<Image_Image_Filesize_Operator>;
-  focalX?: InputMaybe<Image_Image_FocalX_Operator>;
-  focalY?: InputMaybe<Image_Image_FocalY_Operator>;
-  height?: InputMaybe<Image_Image_Height_Operator>;
-  id?: InputMaybe<Image_Image_Id_Operator>;
-  mimeType?: InputMaybe<Image_Image_MimeType_Operator>;
-  sizes__card__filename?: InputMaybe<Image_Image_Sizes__Card__Filename_Operator>;
-  sizes__card__filesize?: InputMaybe<Image_Image_Sizes__Card__Filesize_Operator>;
-  sizes__card__height?: InputMaybe<Image_Image_Sizes__Card__Height_Operator>;
-  sizes__card__mimeType?: InputMaybe<Image_Image_Sizes__Card__MimeType_Operator>;
-  sizes__card__url?: InputMaybe<Image_Image_Sizes__Card__Url_Operator>;
-  sizes__card__width?: InputMaybe<Image_Image_Sizes__Card__Width_Operator>;
-  sizes__feature__filename?: InputMaybe<Image_Image_Sizes__Feature__Filename_Operator>;
-  sizes__feature__filesize?: InputMaybe<Image_Image_Sizes__Feature__Filesize_Operator>;
-  sizes__feature__height?: InputMaybe<Image_Image_Sizes__Feature__Height_Operator>;
-  sizes__feature__mimeType?: InputMaybe<Image_Image_Sizes__Feature__MimeType_Operator>;
-  sizes__feature__url?: InputMaybe<Image_Image_Sizes__Feature__Url_Operator>;
-  sizes__feature__width?: InputMaybe<Image_Image_Sizes__Feature__Width_Operator>;
-  updatedAt?: InputMaybe<Image_Image_UpdatedAt_Operator>;
-  url?: InputMaybe<Image_Image_Url_Operator>;
-  width?: InputMaybe<Image_Image_Width_Operator>;
-};
-
-export type Image_Image_Width_Operator = {
-  equals?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  greater_than?: InputMaybe<Scalars['Float']['input']>;
-  greater_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  less_than?: InputMaybe<Scalars['Float']['input']>;
-  less_than_equal?: InputMaybe<Scalars['Float']['input']>;
-  not_equals?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export enum Image_Type {
-  Fullscreen = 'fullscreen',
-  Normal = 'normal',
-  Wide = 'wide'
-}
 
 export type Media = {
   __typename?: 'Media';
@@ -3382,12 +2953,14 @@ export type Mutation = {
   createMedia?: Maybe<Media>;
   createPage?: Maybe<Page>;
   createPayloadPreference?: Maybe<PayloadPreference>;
+  createTenant?: Maybe<Tenant>;
   createUser?: Maybe<User>;
   deleteCategory?: Maybe<Category>;
   deleteCustomer?: Maybe<Customer>;
   deleteMedia?: Maybe<Media>;
   deletePage?: Maybe<Page>;
   deletePayloadPreference?: Maybe<PayloadPreference>;
+  deleteTenant?: Maybe<Tenant>;
   deleteUser?: Maybe<User>;
   forgotPasswordCustomer: Scalars['Boolean']['output'];
   forgotPasswordUser: Scalars['Boolean']['output'];
@@ -3406,6 +2979,7 @@ export type Mutation = {
   updateMedia?: Maybe<Media>;
   updatePage?: Maybe<Page>;
   updatePayloadPreference?: Maybe<PayloadPreference>;
+  updateTenant?: Maybe<Tenant>;
   updateUser?: Maybe<User>;
   verifyEmailCustomer?: Maybe<Scalars['Boolean']['output']>;
   verifyEmailUser?: Maybe<Scalars['Boolean']['output']>;
@@ -3437,6 +3011,11 @@ export type MutationCreatePayloadPreferenceArgs = {
 };
 
 
+export type MutationCreateTenantArgs = {
+  data: MutationTenantInput;
+};
+
+
 export type MutationCreateUserArgs = {
   data: MutationUserInput;
 };
@@ -3463,6 +3042,11 @@ export type MutationDeletePageArgs = {
 
 
 export type MutationDeletePayloadPreferenceArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteTenantArgs = {
   id: Scalars['String']['input'];
 };
 
@@ -3555,6 +3139,13 @@ export type MutationUpdatePayloadPreferenceArgs = {
 };
 
 
+export type MutationUpdateTenantArgs = {
+  autosave?: InputMaybe<Scalars['Boolean']['input']>;
+  data: MutationTenantUpdateInput;
+  id: Scalars['String']['input'];
+};
+
+
 export type MutationUpdateUserArgs = {
   autosave?: InputMaybe<Scalars['Boolean']['input']>;
   data: MutationUserUpdateInput;
@@ -3577,14 +3168,18 @@ export type Page = {
   description?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['String']['output']>;
   keywords?: Maybe<Scalars['String']['output']>;
-  layout?: Maybe<Array<Page_Layout>>;
   pageTitle: Scalars['String']['output'];
+  richText: Scalars['JSON']['output'];
   slug?: Maybe<Scalars['String']['output']>;
+  tenant?: Maybe<Tenant>;
   title?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
-export type Page_Layout = Content | Image;
+
+export type PageRichTextArgs = {
+  depth?: InputMaybe<Scalars['Int']['input']>;
+};
 
 export type Page_CreatedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']['input']>;
@@ -3637,6 +3232,13 @@ export type Page_PageTitle_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type Page_RichText_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>;
+  equals?: InputMaybe<Scalars['JSON']['input']>;
+  like?: InputMaybe<Scalars['JSON']['input']>;
+  not_equals?: InputMaybe<Scalars['JSON']['input']>;
+};
+
 export type Page_Slug_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   contains?: InputMaybe<Scalars['String']['input']>;
@@ -3646,6 +3248,15 @@ export type Page_Slug_Operator = {
   like?: InputMaybe<Scalars['String']['input']>;
   not_equals?: InputMaybe<Scalars['String']['input']>;
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Page_Tenant_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
+  equals?: InputMaybe<Scalars['JSON']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
+  not_equals?: InputMaybe<Scalars['JSON']['input']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
 };
 
 export type Page_Title_Operator = {
@@ -3678,7 +3289,9 @@ export type Page_Where = {
   id?: InputMaybe<Page_Id_Operator>;
   keywords?: InputMaybe<Page_Keywords_Operator>;
   pageTitle?: InputMaybe<Page_PageTitle_Operator>;
+  richText?: InputMaybe<Page_RichText_Operator>;
   slug?: InputMaybe<Page_Slug_Operator>;
+  tenant?: InputMaybe<Page_Tenant_Operator>;
   title?: InputMaybe<Page_Title_Operator>;
   updatedAt?: InputMaybe<Page_UpdatedAt_Operator>;
 };
@@ -3691,7 +3304,9 @@ export type Page_Where_And = {
   id?: InputMaybe<Page_Id_Operator>;
   keywords?: InputMaybe<Page_Keywords_Operator>;
   pageTitle?: InputMaybe<Page_PageTitle_Operator>;
+  richText?: InputMaybe<Page_RichText_Operator>;
   slug?: InputMaybe<Page_Slug_Operator>;
+  tenant?: InputMaybe<Page_Tenant_Operator>;
   title?: InputMaybe<Page_Title_Operator>;
   updatedAt?: InputMaybe<Page_UpdatedAt_Operator>;
 };
@@ -3704,7 +3319,9 @@ export type Page_Where_Or = {
   id?: InputMaybe<Page_Id_Operator>;
   keywords?: InputMaybe<Page_Keywords_Operator>;
   pageTitle?: InputMaybe<Page_PageTitle_Operator>;
+  richText?: InputMaybe<Page_RichText_Operator>;
   slug?: InputMaybe<Page_Slug_Operator>;
+  tenant?: InputMaybe<Page_Tenant_Operator>;
   title?: InputMaybe<Page_Title_Operator>;
   updatedAt?: InputMaybe<Page_UpdatedAt_Operator>;
 };
@@ -3753,9 +3370,10 @@ export type PagesDocAccessFields = {
   createdAt?: Maybe<PagesDocAccessFields_CreatedAt>;
   description?: Maybe<PagesDocAccessFields_Description>;
   keywords?: Maybe<PagesDocAccessFields_Keywords>;
-  layout?: Maybe<PagesDocAccessFields_Layout>;
   pageTitle?: Maybe<PagesDocAccessFields_PageTitle>;
+  richText?: Maybe<PagesDocAccessFields_RichText>;
   slug?: Maybe<PagesDocAccessFields_Slug>;
+  tenant?: Maybe<PagesDocAccessFields_Tenant>;
   title?: Maybe<PagesDocAccessFields_Title>;
   updatedAt?: Maybe<PagesDocAccessFields_UpdatedAt>;
 };
@@ -3844,34 +3462,6 @@ export type PagesDocAccessFields_Keywords_Update = {
   permission: Scalars['Boolean']['output'];
 };
 
-export type PagesDocAccessFields_Layout = {
-  __typename?: 'PagesDocAccessFields_layout';
-  create?: Maybe<PagesDocAccessFields_Layout_Create>;
-  delete?: Maybe<PagesDocAccessFields_Layout_Delete>;
-  read?: Maybe<PagesDocAccessFields_Layout_Read>;
-  update?: Maybe<PagesDocAccessFields_Layout_Update>;
-};
-
-export type PagesDocAccessFields_Layout_Create = {
-  __typename?: 'PagesDocAccessFields_layout_Create';
-  permission: Scalars['Boolean']['output'];
-};
-
-export type PagesDocAccessFields_Layout_Delete = {
-  __typename?: 'PagesDocAccessFields_layout_Delete';
-  permission: Scalars['Boolean']['output'];
-};
-
-export type PagesDocAccessFields_Layout_Read = {
-  __typename?: 'PagesDocAccessFields_layout_Read';
-  permission: Scalars['Boolean']['output'];
-};
-
-export type PagesDocAccessFields_Layout_Update = {
-  __typename?: 'PagesDocAccessFields_layout_Update';
-  permission: Scalars['Boolean']['output'];
-};
-
 export type PagesDocAccessFields_PageTitle = {
   __typename?: 'PagesDocAccessFields_pageTitle';
   create?: Maybe<PagesDocAccessFields_PageTitle_Create>;
@@ -3900,6 +3490,34 @@ export type PagesDocAccessFields_PageTitle_Update = {
   permission: Scalars['Boolean']['output'];
 };
 
+export type PagesDocAccessFields_RichText = {
+  __typename?: 'PagesDocAccessFields_richText';
+  create?: Maybe<PagesDocAccessFields_RichText_Create>;
+  delete?: Maybe<PagesDocAccessFields_RichText_Delete>;
+  read?: Maybe<PagesDocAccessFields_RichText_Read>;
+  update?: Maybe<PagesDocAccessFields_RichText_Update>;
+};
+
+export type PagesDocAccessFields_RichText_Create = {
+  __typename?: 'PagesDocAccessFields_richText_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesDocAccessFields_RichText_Delete = {
+  __typename?: 'PagesDocAccessFields_richText_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesDocAccessFields_RichText_Read = {
+  __typename?: 'PagesDocAccessFields_richText_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesDocAccessFields_RichText_Update = {
+  __typename?: 'PagesDocAccessFields_richText_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
 export type PagesDocAccessFields_Slug = {
   __typename?: 'PagesDocAccessFields_slug';
   create?: Maybe<PagesDocAccessFields_Slug_Create>;
@@ -3925,6 +3543,34 @@ export type PagesDocAccessFields_Slug_Read = {
 
 export type PagesDocAccessFields_Slug_Update = {
   __typename?: 'PagesDocAccessFields_slug_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesDocAccessFields_Tenant = {
+  __typename?: 'PagesDocAccessFields_tenant';
+  create?: Maybe<PagesDocAccessFields_Tenant_Create>;
+  delete?: Maybe<PagesDocAccessFields_Tenant_Delete>;
+  read?: Maybe<PagesDocAccessFields_Tenant_Read>;
+  update?: Maybe<PagesDocAccessFields_Tenant_Update>;
+};
+
+export type PagesDocAccessFields_Tenant_Create = {
+  __typename?: 'PagesDocAccessFields_tenant_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesDocAccessFields_Tenant_Delete = {
+  __typename?: 'PagesDocAccessFields_tenant_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesDocAccessFields_Tenant_Read = {
+  __typename?: 'PagesDocAccessFields_tenant_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesDocAccessFields_Tenant_Update = {
+  __typename?: 'PagesDocAccessFields_tenant_Update';
   permission: Scalars['Boolean']['output'];
 };
 
@@ -3989,9 +3635,10 @@ export type PagesFields = {
   createdAt?: Maybe<PagesFields_CreatedAt>;
   description?: Maybe<PagesFields_Description>;
   keywords?: Maybe<PagesFields_Keywords>;
-  layout?: Maybe<PagesFields_Layout>;
   pageTitle?: Maybe<PagesFields_PageTitle>;
+  richText?: Maybe<PagesFields_RichText>;
   slug?: Maybe<PagesFields_Slug>;
+  tenant?: Maybe<PagesFields_Tenant>;
   title?: Maybe<PagesFields_Title>;
   updatedAt?: Maybe<PagesFields_UpdatedAt>;
 };
@@ -4080,34 +3727,6 @@ export type PagesFields_Keywords_Update = {
   permission: Scalars['Boolean']['output'];
 };
 
-export type PagesFields_Layout = {
-  __typename?: 'PagesFields_layout';
-  create?: Maybe<PagesFields_Layout_Create>;
-  delete?: Maybe<PagesFields_Layout_Delete>;
-  read?: Maybe<PagesFields_Layout_Read>;
-  update?: Maybe<PagesFields_Layout_Update>;
-};
-
-export type PagesFields_Layout_Create = {
-  __typename?: 'PagesFields_layout_Create';
-  permission: Scalars['Boolean']['output'];
-};
-
-export type PagesFields_Layout_Delete = {
-  __typename?: 'PagesFields_layout_Delete';
-  permission: Scalars['Boolean']['output'];
-};
-
-export type PagesFields_Layout_Read = {
-  __typename?: 'PagesFields_layout_Read';
-  permission: Scalars['Boolean']['output'];
-};
-
-export type PagesFields_Layout_Update = {
-  __typename?: 'PagesFields_layout_Update';
-  permission: Scalars['Boolean']['output'];
-};
-
 export type PagesFields_PageTitle = {
   __typename?: 'PagesFields_pageTitle';
   create?: Maybe<PagesFields_PageTitle_Create>;
@@ -4136,6 +3755,34 @@ export type PagesFields_PageTitle_Update = {
   permission: Scalars['Boolean']['output'];
 };
 
+export type PagesFields_RichText = {
+  __typename?: 'PagesFields_richText';
+  create?: Maybe<PagesFields_RichText_Create>;
+  delete?: Maybe<PagesFields_RichText_Delete>;
+  read?: Maybe<PagesFields_RichText_Read>;
+  update?: Maybe<PagesFields_RichText_Update>;
+};
+
+export type PagesFields_RichText_Create = {
+  __typename?: 'PagesFields_richText_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesFields_RichText_Delete = {
+  __typename?: 'PagesFields_richText_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesFields_RichText_Read = {
+  __typename?: 'PagesFields_richText_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesFields_RichText_Update = {
+  __typename?: 'PagesFields_richText_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
 export type PagesFields_Slug = {
   __typename?: 'PagesFields_slug';
   create?: Maybe<PagesFields_Slug_Create>;
@@ -4161,6 +3808,34 @@ export type PagesFields_Slug_Read = {
 
 export type PagesFields_Slug_Update = {
   __typename?: 'PagesFields_slug_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesFields_Tenant = {
+  __typename?: 'PagesFields_tenant';
+  create?: Maybe<PagesFields_Tenant_Create>;
+  delete?: Maybe<PagesFields_Tenant_Delete>;
+  read?: Maybe<PagesFields_Tenant_Read>;
+  update?: Maybe<PagesFields_Tenant_Update>;
+};
+
+export type PagesFields_Tenant_Create = {
+  __typename?: 'PagesFields_tenant_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesFields_Tenant_Delete = {
+  __typename?: 'PagesFields_tenant_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesFields_Tenant_Read = {
+  __typename?: 'PagesFields_tenant_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type PagesFields_Tenant_Update = {
+  __typename?: 'PagesFields_tenant_Update';
   permission: Scalars['Boolean']['output'];
 };
 
@@ -4757,6 +4432,8 @@ export type Query = {
   Pages?: Maybe<Pages>;
   PayloadPreference?: Maybe<PayloadPreference>;
   PayloadPreferences?: Maybe<PayloadPreferences>;
+  Tenant?: Maybe<Tenant>;
+  Tenants?: Maybe<Tenants>;
   User?: Maybe<User>;
   Users?: Maybe<Users>;
   allMedia?: Maybe<AllMedia>;
@@ -4764,6 +4441,7 @@ export type Query = {
   countCustomers?: Maybe<CountCustomers>;
   countPages?: Maybe<CountPages>;
   countPayloadPreferences?: Maybe<CountPayloadPreferences>;
+  countTenants?: Maybe<CountTenants>;
   countUsers?: Maybe<CountUsers>;
   countallMedia?: Maybe<CountallMedia>;
   docAccessCategory?: Maybe<CategoriesDocAccess>;
@@ -4771,6 +4449,7 @@ export type Query = {
   docAccessMedia?: Maybe<MediaDocAccess>;
   docAccessPage?: Maybe<PagesDocAccess>;
   docAccessPayloadPreference?: Maybe<Payload_PreferencesDocAccess>;
+  docAccessTenant?: Maybe<TenantsDocAccess>;
   docAccessUser?: Maybe<UsersDocAccess>;
   initializedCustomer?: Maybe<Scalars['Boolean']['output']>;
   initializedUser?: Maybe<Scalars['Boolean']['output']>;
@@ -4836,6 +4515,19 @@ export type QueryPayloadPreferencesArgs = {
 };
 
 
+export type QueryTenantArgs = {
+  id: Scalars['String']['input'];
+};
+
+
+export type QueryTenantsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  page?: InputMaybe<Scalars['Int']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  where?: InputMaybe<Tenant_Where>;
+};
+
+
 export type QueryUserArgs = {
   id: Scalars['String']['input'];
 };
@@ -4877,6 +4569,11 @@ export type QueryCountPayloadPreferencesArgs = {
 };
 
 
+export type QueryCountTenantsArgs = {
+  where?: InputMaybe<Tenant_Where>;
+};
+
+
 export type QueryCountUsersArgs = {
   where?: InputMaybe<User_Where>;
 };
@@ -4912,24 +4609,602 @@ export type QueryDocAccessPayloadPreferenceArgs = {
 };
 
 
+export type QueryDocAccessTenantArgs = {
+  id: Scalars['String']['input'];
+};
+
+
 export type QueryDocAccessUserArgs = {
   id: Scalars['String']['input'];
+};
+
+export type Tenant = {
+  __typename?: 'Tenant';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  domains?: Maybe<Array<Tenant_Domains>>;
+  id?: Maybe<Scalars['String']['output']>;
+  name: Scalars['String']['output'];
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type Tenant_Domains = {
+  __typename?: 'Tenant_Domains';
+  domain?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+};
+
+export type Tenant_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>;
+  less_than?: InputMaybe<Scalars['DateTime']['input']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>;
+  like?: InputMaybe<Scalars['DateTime']['input']>;
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type Tenant_Domains__Domain_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contains?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  not_equals?: InputMaybe<Scalars['String']['input']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Tenant_Domains__Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contains?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  not_equals?: InputMaybe<Scalars['String']['input']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Tenant_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contains?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  not_equals?: InputMaybe<Scalars['String']['input']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Tenant_Name_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contains?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  not_equals?: InputMaybe<Scalars['String']['input']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Tenant_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>;
+  less_than?: InputMaybe<Scalars['DateTime']['input']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>;
+  like?: InputMaybe<Scalars['DateTime']['input']>;
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type Tenant_Where = {
+  AND?: InputMaybe<Array<InputMaybe<Tenant_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Tenant_Where_Or>>>;
+  createdAt?: InputMaybe<Tenant_CreatedAt_Operator>;
+  domains__domain?: InputMaybe<Tenant_Domains__Domain_Operator>;
+  domains__id?: InputMaybe<Tenant_Domains__Id_Operator>;
+  id?: InputMaybe<Tenant_Id_Operator>;
+  name?: InputMaybe<Tenant_Name_Operator>;
+  updatedAt?: InputMaybe<Tenant_UpdatedAt_Operator>;
+};
+
+export type Tenant_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<Tenant_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Tenant_Where_Or>>>;
+  createdAt?: InputMaybe<Tenant_CreatedAt_Operator>;
+  domains__domain?: InputMaybe<Tenant_Domains__Domain_Operator>;
+  domains__id?: InputMaybe<Tenant_Domains__Id_Operator>;
+  id?: InputMaybe<Tenant_Id_Operator>;
+  name?: InputMaybe<Tenant_Name_Operator>;
+  updatedAt?: InputMaybe<Tenant_UpdatedAt_Operator>;
+};
+
+export type Tenant_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<Tenant_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Tenant_Where_Or>>>;
+  createdAt?: InputMaybe<Tenant_CreatedAt_Operator>;
+  domains__domain?: InputMaybe<Tenant_Domains__Domain_Operator>;
+  domains__id?: InputMaybe<Tenant_Domains__Id_Operator>;
+  id?: InputMaybe<Tenant_Id_Operator>;
+  name?: InputMaybe<Tenant_Name_Operator>;
+  updatedAt?: InputMaybe<Tenant_UpdatedAt_Operator>;
+};
+
+export type Tenants = {
+  __typename?: 'Tenants';
+  docs?: Maybe<Array<Maybe<Tenant>>>;
+  hasNextPage?: Maybe<Scalars['Boolean']['output']>;
+  hasPrevPage?: Maybe<Scalars['Boolean']['output']>;
+  limit?: Maybe<Scalars['Int']['output']>;
+  nextPage?: Maybe<Scalars['Int']['output']>;
+  offset?: Maybe<Scalars['Int']['output']>;
+  page?: Maybe<Scalars['Int']['output']>;
+  pagingCounter?: Maybe<Scalars['Int']['output']>;
+  prevPage?: Maybe<Scalars['Int']['output']>;
+  totalDocs?: Maybe<Scalars['Int']['output']>;
+  totalPages?: Maybe<Scalars['Int']['output']>;
+};
+
+export type TenantsCreateAccess = {
+  __typename?: 'TenantsCreateAccess';
+  permission: Scalars['Boolean']['output'];
+  where?: Maybe<Scalars['JSONObject']['output']>;
+};
+
+export type TenantsCreateDocAccess = {
+  __typename?: 'TenantsCreateDocAccess';
+  permission: Scalars['Boolean']['output'];
+  where?: Maybe<Scalars['JSONObject']['output']>;
+};
+
+export type TenantsDeleteAccess = {
+  __typename?: 'TenantsDeleteAccess';
+  permission: Scalars['Boolean']['output'];
+  where?: Maybe<Scalars['JSONObject']['output']>;
+};
+
+export type TenantsDeleteDocAccess = {
+  __typename?: 'TenantsDeleteDocAccess';
+  permission: Scalars['Boolean']['output'];
+  where?: Maybe<Scalars['JSONObject']['output']>;
+};
+
+export type TenantsDocAccessFields = {
+  __typename?: 'TenantsDocAccessFields';
+  createdAt?: Maybe<TenantsDocAccessFields_CreatedAt>;
+  domains?: Maybe<TenantsDocAccessFields_Domains>;
+  name?: Maybe<TenantsDocAccessFields_Name>;
+  updatedAt?: Maybe<TenantsDocAccessFields_UpdatedAt>;
+};
+
+export type TenantsDocAccessFields_CreatedAt = {
+  __typename?: 'TenantsDocAccessFields_createdAt';
+  create?: Maybe<TenantsDocAccessFields_CreatedAt_Create>;
+  delete?: Maybe<TenantsDocAccessFields_CreatedAt_Delete>;
+  read?: Maybe<TenantsDocAccessFields_CreatedAt_Read>;
+  update?: Maybe<TenantsDocAccessFields_CreatedAt_Update>;
+};
+
+export type TenantsDocAccessFields_CreatedAt_Create = {
+  __typename?: 'TenantsDocAccessFields_createdAt_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'TenantsDocAccessFields_createdAt_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_CreatedAt_Read = {
+  __typename?: 'TenantsDocAccessFields_createdAt_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_CreatedAt_Update = {
+  __typename?: 'TenantsDocAccessFields_createdAt_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains = {
+  __typename?: 'TenantsDocAccessFields_domains';
+  create?: Maybe<TenantsDocAccessFields_Domains_Create>;
+  delete?: Maybe<TenantsDocAccessFields_Domains_Delete>;
+  fields?: Maybe<TenantsDocAccessFields_Domains_Fields>;
+  read?: Maybe<TenantsDocAccessFields_Domains_Read>;
+  update?: Maybe<TenantsDocAccessFields_Domains_Update>;
+};
+
+export type TenantsDocAccessFields_Domains_Create = {
+  __typename?: 'TenantsDocAccessFields_domains_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Delete = {
+  __typename?: 'TenantsDocAccessFields_domains_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Fields = {
+  __typename?: 'TenantsDocAccessFields_domains_Fields';
+  domain?: Maybe<TenantsDocAccessFields_Domains_Domain>;
+  id?: Maybe<TenantsDocAccessFields_Domains_Id>;
+};
+
+export type TenantsDocAccessFields_Domains_Read = {
+  __typename?: 'TenantsDocAccessFields_domains_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Update = {
+  __typename?: 'TenantsDocAccessFields_domains_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Domain = {
+  __typename?: 'TenantsDocAccessFields_domains_domain';
+  create?: Maybe<TenantsDocAccessFields_Domains_Domain_Create>;
+  delete?: Maybe<TenantsDocAccessFields_Domains_Domain_Delete>;
+  read?: Maybe<TenantsDocAccessFields_Domains_Domain_Read>;
+  update?: Maybe<TenantsDocAccessFields_Domains_Domain_Update>;
+};
+
+export type TenantsDocAccessFields_Domains_Domain_Create = {
+  __typename?: 'TenantsDocAccessFields_domains_domain_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Domain_Delete = {
+  __typename?: 'TenantsDocAccessFields_domains_domain_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Domain_Read = {
+  __typename?: 'TenantsDocAccessFields_domains_domain_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Domain_Update = {
+  __typename?: 'TenantsDocAccessFields_domains_domain_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Id = {
+  __typename?: 'TenantsDocAccessFields_domains_id';
+  create?: Maybe<TenantsDocAccessFields_Domains_Id_Create>;
+  delete?: Maybe<TenantsDocAccessFields_Domains_Id_Delete>;
+  read?: Maybe<TenantsDocAccessFields_Domains_Id_Read>;
+  update?: Maybe<TenantsDocAccessFields_Domains_Id_Update>;
+};
+
+export type TenantsDocAccessFields_Domains_Id_Create = {
+  __typename?: 'TenantsDocAccessFields_domains_id_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Id_Delete = {
+  __typename?: 'TenantsDocAccessFields_domains_id_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Id_Read = {
+  __typename?: 'TenantsDocAccessFields_domains_id_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Domains_Id_Update = {
+  __typename?: 'TenantsDocAccessFields_domains_id_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Name = {
+  __typename?: 'TenantsDocAccessFields_name';
+  create?: Maybe<TenantsDocAccessFields_Name_Create>;
+  delete?: Maybe<TenantsDocAccessFields_Name_Delete>;
+  read?: Maybe<TenantsDocAccessFields_Name_Read>;
+  update?: Maybe<TenantsDocAccessFields_Name_Update>;
+};
+
+export type TenantsDocAccessFields_Name_Create = {
+  __typename?: 'TenantsDocAccessFields_name_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Name_Delete = {
+  __typename?: 'TenantsDocAccessFields_name_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Name_Read = {
+  __typename?: 'TenantsDocAccessFields_name_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_Name_Update = {
+  __typename?: 'TenantsDocAccessFields_name_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_UpdatedAt = {
+  __typename?: 'TenantsDocAccessFields_updatedAt';
+  create?: Maybe<TenantsDocAccessFields_UpdatedAt_Create>;
+  delete?: Maybe<TenantsDocAccessFields_UpdatedAt_Delete>;
+  read?: Maybe<TenantsDocAccessFields_UpdatedAt_Read>;
+  update?: Maybe<TenantsDocAccessFields_UpdatedAt_Update>;
+};
+
+export type TenantsDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'TenantsDocAccessFields_updatedAt_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'TenantsDocAccessFields_updatedAt_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'TenantsDocAccessFields_updatedAt_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'TenantsDocAccessFields_updatedAt_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields = {
+  __typename?: 'TenantsFields';
+  createdAt?: Maybe<TenantsFields_CreatedAt>;
+  domains?: Maybe<TenantsFields_Domains>;
+  name?: Maybe<TenantsFields_Name>;
+  updatedAt?: Maybe<TenantsFields_UpdatedAt>;
+};
+
+export type TenantsFields_CreatedAt = {
+  __typename?: 'TenantsFields_createdAt';
+  create?: Maybe<TenantsFields_CreatedAt_Create>;
+  delete?: Maybe<TenantsFields_CreatedAt_Delete>;
+  read?: Maybe<TenantsFields_CreatedAt_Read>;
+  update?: Maybe<TenantsFields_CreatedAt_Update>;
+};
+
+export type TenantsFields_CreatedAt_Create = {
+  __typename?: 'TenantsFields_createdAt_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_CreatedAt_Delete = {
+  __typename?: 'TenantsFields_createdAt_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_CreatedAt_Read = {
+  __typename?: 'TenantsFields_createdAt_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_CreatedAt_Update = {
+  __typename?: 'TenantsFields_createdAt_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains = {
+  __typename?: 'TenantsFields_domains';
+  create?: Maybe<TenantsFields_Domains_Create>;
+  delete?: Maybe<TenantsFields_Domains_Delete>;
+  fields?: Maybe<TenantsFields_Domains_Fields>;
+  read?: Maybe<TenantsFields_Domains_Read>;
+  update?: Maybe<TenantsFields_Domains_Update>;
+};
+
+export type TenantsFields_Domains_Create = {
+  __typename?: 'TenantsFields_domains_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Delete = {
+  __typename?: 'TenantsFields_domains_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Fields = {
+  __typename?: 'TenantsFields_domains_Fields';
+  domain?: Maybe<TenantsFields_Domains_Domain>;
+  id?: Maybe<TenantsFields_Domains_Id>;
+};
+
+export type TenantsFields_Domains_Read = {
+  __typename?: 'TenantsFields_domains_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Update = {
+  __typename?: 'TenantsFields_domains_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Domain = {
+  __typename?: 'TenantsFields_domains_domain';
+  create?: Maybe<TenantsFields_Domains_Domain_Create>;
+  delete?: Maybe<TenantsFields_Domains_Domain_Delete>;
+  read?: Maybe<TenantsFields_Domains_Domain_Read>;
+  update?: Maybe<TenantsFields_Domains_Domain_Update>;
+};
+
+export type TenantsFields_Domains_Domain_Create = {
+  __typename?: 'TenantsFields_domains_domain_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Domain_Delete = {
+  __typename?: 'TenantsFields_domains_domain_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Domain_Read = {
+  __typename?: 'TenantsFields_domains_domain_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Domain_Update = {
+  __typename?: 'TenantsFields_domains_domain_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Id = {
+  __typename?: 'TenantsFields_domains_id';
+  create?: Maybe<TenantsFields_Domains_Id_Create>;
+  delete?: Maybe<TenantsFields_Domains_Id_Delete>;
+  read?: Maybe<TenantsFields_Domains_Id_Read>;
+  update?: Maybe<TenantsFields_Domains_Id_Update>;
+};
+
+export type TenantsFields_Domains_Id_Create = {
+  __typename?: 'TenantsFields_domains_id_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Id_Delete = {
+  __typename?: 'TenantsFields_domains_id_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Id_Read = {
+  __typename?: 'TenantsFields_domains_id_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Domains_Id_Update = {
+  __typename?: 'TenantsFields_domains_id_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Name = {
+  __typename?: 'TenantsFields_name';
+  create?: Maybe<TenantsFields_Name_Create>;
+  delete?: Maybe<TenantsFields_Name_Delete>;
+  read?: Maybe<TenantsFields_Name_Read>;
+  update?: Maybe<TenantsFields_Name_Update>;
+};
+
+export type TenantsFields_Name_Create = {
+  __typename?: 'TenantsFields_name_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Name_Delete = {
+  __typename?: 'TenantsFields_name_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Name_Read = {
+  __typename?: 'TenantsFields_name_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_Name_Update = {
+  __typename?: 'TenantsFields_name_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_UpdatedAt = {
+  __typename?: 'TenantsFields_updatedAt';
+  create?: Maybe<TenantsFields_UpdatedAt_Create>;
+  delete?: Maybe<TenantsFields_UpdatedAt_Delete>;
+  read?: Maybe<TenantsFields_UpdatedAt_Read>;
+  update?: Maybe<TenantsFields_UpdatedAt_Update>;
+};
+
+export type TenantsFields_UpdatedAt_Create = {
+  __typename?: 'TenantsFields_updatedAt_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_UpdatedAt_Delete = {
+  __typename?: 'TenantsFields_updatedAt_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_UpdatedAt_Read = {
+  __typename?: 'TenantsFields_updatedAt_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsFields_UpdatedAt_Update = {
+  __typename?: 'TenantsFields_updatedAt_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type TenantsReadAccess = {
+  __typename?: 'TenantsReadAccess';
+  permission: Scalars['Boolean']['output'];
+  where?: Maybe<Scalars['JSONObject']['output']>;
+};
+
+export type TenantsReadDocAccess = {
+  __typename?: 'TenantsReadDocAccess';
+  permission: Scalars['Boolean']['output'];
+  where?: Maybe<Scalars['JSONObject']['output']>;
+};
+
+export type TenantsUpdateAccess = {
+  __typename?: 'TenantsUpdateAccess';
+  permission: Scalars['Boolean']['output'];
+  where?: Maybe<Scalars['JSONObject']['output']>;
+};
+
+export type TenantsUpdateDocAccess = {
+  __typename?: 'TenantsUpdateDocAccess';
+  permission: Scalars['Boolean']['output'];
+  where?: Maybe<Scalars['JSONObject']['output']>;
 };
 
 export type User = {
   __typename?: 'User';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   email: Scalars['EmailAddress']['output'];
+  firstName?: Maybe<Scalars['String']['output']>;
   hash?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['String']['output']>;
+  lastLoggedInTenant?: Maybe<Tenant>;
+  lastName?: Maybe<Scalars['String']['output']>;
   lockUntil?: Maybe<Scalars['DateTime']['output']>;
   loginAttempts?: Maybe<Scalars['Float']['output']>;
   password: Scalars['String']['output'];
   resetPasswordExpiration?: Maybe<Scalars['DateTime']['output']>;
   resetPasswordToken?: Maybe<Scalars['String']['output']>;
+  roles?: Maybe<Array<User_Roles>>;
   salt?: Maybe<Scalars['String']['output']>;
+  tenants?: Maybe<Array<User_Tenants>>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
+
+export enum UserUpdate_Tenants_Roles_MutationInput {
+  Admin = 'admin',
+  User = 'user'
+}
+
+export enum UserUpdate_Roles_MutationInput {
+  SuperAdmin = 'super_admin',
+  User = 'user'
+}
+
+export type User_Tenants = {
+  __typename?: 'User_Tenants';
+  id?: Maybe<Scalars['String']['output']>;
+  roles?: Maybe<Array<User_Tenants_Roles>>;
+  tenant?: Maybe<Tenant>;
+};
+
+export enum User_Tenants_Roles {
+  Admin = 'admin',
+  User = 'user'
+}
+
+export enum User_Tenants_Roles_MutationInput {
+  Admin = 'admin',
+  User = 'user'
+}
 
 export type User_CreatedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']['input']>;
@@ -4952,6 +5227,17 @@ export type User_Email_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['EmailAddress']['input']>>>;
 };
 
+export type User_FirstName_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contains?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  not_equals?: InputMaybe<Scalars['String']['input']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type User_Id_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   contains?: InputMaybe<Scalars['String']['input']>;
@@ -4961,6 +5247,81 @@ export type User_Id_Operator = {
   like?: InputMaybe<Scalars['String']['input']>;
   not_equals?: InputMaybe<Scalars['String']['input']>;
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type User_LastLoggedInTenant_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
+  equals?: InputMaybe<Scalars['JSON']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
+  not_equals?: InputMaybe<Scalars['JSON']['input']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
+};
+
+export type User_LastName_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contains?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  not_equals?: InputMaybe<Scalars['String']['input']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export enum User_Roles {
+  SuperAdmin = 'super_admin',
+  User = 'user'
+}
+
+export enum User_Roles_Input {
+  SuperAdmin = 'super_admin',
+  User = 'user'
+}
+
+export enum User_Roles_MutationInput {
+  SuperAdmin = 'super_admin',
+  User = 'user'
+}
+
+export type User_Roles_Operator = {
+  all?: InputMaybe<Array<InputMaybe<User_Roles_Input>>>;
+  equals?: InputMaybe<User_Roles_Input>;
+  in?: InputMaybe<Array<InputMaybe<User_Roles_Input>>>;
+  not_equals?: InputMaybe<User_Roles_Input>;
+  not_in?: InputMaybe<Array<InputMaybe<User_Roles_Input>>>;
+};
+
+export type User_Tenants__Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contains?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  not_equals?: InputMaybe<Scalars['String']['input']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export enum User_Tenants__Roles_Input {
+  Admin = 'admin',
+  User = 'user'
+}
+
+export type User_Tenants__Roles_Operator = {
+  all?: InputMaybe<Array<InputMaybe<User_Tenants__Roles_Input>>>;
+  equals?: InputMaybe<User_Tenants__Roles_Input>;
+  in?: InputMaybe<Array<InputMaybe<User_Tenants__Roles_Input>>>;
+  not_equals?: InputMaybe<User_Tenants__Roles_Input>;
+  not_in?: InputMaybe<Array<InputMaybe<User_Tenants__Roles_Input>>>;
+};
+
+export type User_Tenants__Tenant_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
+  equals?: InputMaybe<Scalars['JSON']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
+  not_equals?: InputMaybe<Scalars['JSON']['input']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
 };
 
 export type User_UpdatedAt_Operator = {
@@ -4979,7 +5340,14 @@ export type User_Where = {
   OR?: InputMaybe<Array<InputMaybe<User_Where_Or>>>;
   createdAt?: InputMaybe<User_CreatedAt_Operator>;
   email?: InputMaybe<User_Email_Operator>;
+  firstName?: InputMaybe<User_FirstName_Operator>;
   id?: InputMaybe<User_Id_Operator>;
+  lastLoggedInTenant?: InputMaybe<User_LastLoggedInTenant_Operator>;
+  lastName?: InputMaybe<User_LastName_Operator>;
+  roles?: InputMaybe<User_Roles_Operator>;
+  tenants__id?: InputMaybe<User_Tenants__Id_Operator>;
+  tenants__roles?: InputMaybe<User_Tenants__Roles_Operator>;
+  tenants__tenant?: InputMaybe<User_Tenants__Tenant_Operator>;
   updatedAt?: InputMaybe<User_UpdatedAt_Operator>;
 };
 
@@ -4988,7 +5356,14 @@ export type User_Where_And = {
   OR?: InputMaybe<Array<InputMaybe<User_Where_Or>>>;
   createdAt?: InputMaybe<User_CreatedAt_Operator>;
   email?: InputMaybe<User_Email_Operator>;
+  firstName?: InputMaybe<User_FirstName_Operator>;
   id?: InputMaybe<User_Id_Operator>;
+  lastLoggedInTenant?: InputMaybe<User_LastLoggedInTenant_Operator>;
+  lastName?: InputMaybe<User_LastName_Operator>;
+  roles?: InputMaybe<User_Roles_Operator>;
+  tenants__id?: InputMaybe<User_Tenants__Id_Operator>;
+  tenants__roles?: InputMaybe<User_Tenants__Roles_Operator>;
+  tenants__tenant?: InputMaybe<User_Tenants__Tenant_Operator>;
   updatedAt?: InputMaybe<User_UpdatedAt_Operator>;
 };
 
@@ -4997,7 +5372,14 @@ export type User_Where_Or = {
   OR?: InputMaybe<Array<InputMaybe<User_Where_Or>>>;
   createdAt?: InputMaybe<User_CreatedAt_Operator>;
   email?: InputMaybe<User_Email_Operator>;
+  firstName?: InputMaybe<User_FirstName_Operator>;
   id?: InputMaybe<User_Id_Operator>;
+  lastLoggedInTenant?: InputMaybe<User_LastLoggedInTenant_Operator>;
+  lastName?: InputMaybe<User_LastName_Operator>;
+  roles?: InputMaybe<User_Roles_Operator>;
+  tenants__id?: InputMaybe<User_Tenants__Id_Operator>;
+  tenants__roles?: InputMaybe<User_Tenants__Roles_Operator>;
+  tenants__tenant?: InputMaybe<User_Tenants__Tenant_Operator>;
   updatedAt?: InputMaybe<User_UpdatedAt_Operator>;
 };
 
@@ -5044,7 +5426,12 @@ export type UsersDocAccessFields = {
   __typename?: 'UsersDocAccessFields';
   createdAt?: Maybe<UsersDocAccessFields_CreatedAt>;
   email?: Maybe<UsersDocAccessFields_Email>;
+  firstName?: Maybe<UsersDocAccessFields_FirstName>;
+  lastLoggedInTenant?: Maybe<UsersDocAccessFields_LastLoggedInTenant>;
+  lastName?: Maybe<UsersDocAccessFields_LastName>;
   password?: Maybe<UsersDocAccessFields_Password>;
+  roles?: Maybe<UsersDocAccessFields_Roles>;
+  tenants?: Maybe<UsersDocAccessFields_Tenants>;
   updatedAt?: Maybe<UsersDocAccessFields_UpdatedAt>;
 };
 
@@ -5104,6 +5491,90 @@ export type UsersDocAccessFields_Email_Update = {
   permission: Scalars['Boolean']['output'];
 };
 
+export type UsersDocAccessFields_FirstName = {
+  __typename?: 'UsersDocAccessFields_firstName';
+  create?: Maybe<UsersDocAccessFields_FirstName_Create>;
+  delete?: Maybe<UsersDocAccessFields_FirstName_Delete>;
+  read?: Maybe<UsersDocAccessFields_FirstName_Read>;
+  update?: Maybe<UsersDocAccessFields_FirstName_Update>;
+};
+
+export type UsersDocAccessFields_FirstName_Create = {
+  __typename?: 'UsersDocAccessFields_firstName_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_FirstName_Delete = {
+  __typename?: 'UsersDocAccessFields_firstName_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_FirstName_Read = {
+  __typename?: 'UsersDocAccessFields_firstName_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_FirstName_Update = {
+  __typename?: 'UsersDocAccessFields_firstName_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_LastLoggedInTenant = {
+  __typename?: 'UsersDocAccessFields_lastLoggedInTenant';
+  create?: Maybe<UsersDocAccessFields_LastLoggedInTenant_Create>;
+  delete?: Maybe<UsersDocAccessFields_LastLoggedInTenant_Delete>;
+  read?: Maybe<UsersDocAccessFields_LastLoggedInTenant_Read>;
+  update?: Maybe<UsersDocAccessFields_LastLoggedInTenant_Update>;
+};
+
+export type UsersDocAccessFields_LastLoggedInTenant_Create = {
+  __typename?: 'UsersDocAccessFields_lastLoggedInTenant_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_LastLoggedInTenant_Delete = {
+  __typename?: 'UsersDocAccessFields_lastLoggedInTenant_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_LastLoggedInTenant_Read = {
+  __typename?: 'UsersDocAccessFields_lastLoggedInTenant_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_LastLoggedInTenant_Update = {
+  __typename?: 'UsersDocAccessFields_lastLoggedInTenant_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_LastName = {
+  __typename?: 'UsersDocAccessFields_lastName';
+  create?: Maybe<UsersDocAccessFields_LastName_Create>;
+  delete?: Maybe<UsersDocAccessFields_LastName_Delete>;
+  read?: Maybe<UsersDocAccessFields_LastName_Read>;
+  update?: Maybe<UsersDocAccessFields_LastName_Update>;
+};
+
+export type UsersDocAccessFields_LastName_Create = {
+  __typename?: 'UsersDocAccessFields_lastName_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_LastName_Delete = {
+  __typename?: 'UsersDocAccessFields_lastName_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_LastName_Read = {
+  __typename?: 'UsersDocAccessFields_lastName_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_LastName_Update = {
+  __typename?: 'UsersDocAccessFields_lastName_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
 export type UsersDocAccessFields_Password = {
   __typename?: 'UsersDocAccessFields_password';
   create?: Maybe<UsersDocAccessFields_Password_Create>;
@@ -5129,6 +5600,154 @@ export type UsersDocAccessFields_Password_Read = {
 
 export type UsersDocAccessFields_Password_Update = {
   __typename?: 'UsersDocAccessFields_password_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Roles = {
+  __typename?: 'UsersDocAccessFields_roles';
+  create?: Maybe<UsersDocAccessFields_Roles_Create>;
+  delete?: Maybe<UsersDocAccessFields_Roles_Delete>;
+  read?: Maybe<UsersDocAccessFields_Roles_Read>;
+  update?: Maybe<UsersDocAccessFields_Roles_Update>;
+};
+
+export type UsersDocAccessFields_Roles_Create = {
+  __typename?: 'UsersDocAccessFields_roles_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Roles_Delete = {
+  __typename?: 'UsersDocAccessFields_roles_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Roles_Read = {
+  __typename?: 'UsersDocAccessFields_roles_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Roles_Update = {
+  __typename?: 'UsersDocAccessFields_roles_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants = {
+  __typename?: 'UsersDocAccessFields_tenants';
+  create?: Maybe<UsersDocAccessFields_Tenants_Create>;
+  delete?: Maybe<UsersDocAccessFields_Tenants_Delete>;
+  fields?: Maybe<UsersDocAccessFields_Tenants_Fields>;
+  read?: Maybe<UsersDocAccessFields_Tenants_Read>;
+  update?: Maybe<UsersDocAccessFields_Tenants_Update>;
+};
+
+export type UsersDocAccessFields_Tenants_Create = {
+  __typename?: 'UsersDocAccessFields_tenants_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Delete = {
+  __typename?: 'UsersDocAccessFields_tenants_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Fields = {
+  __typename?: 'UsersDocAccessFields_tenants_Fields';
+  id?: Maybe<UsersDocAccessFields_Tenants_Id>;
+  roles?: Maybe<UsersDocAccessFields_Tenants_Roles>;
+  tenant?: Maybe<UsersDocAccessFields_Tenants_Tenant>;
+};
+
+export type UsersDocAccessFields_Tenants_Read = {
+  __typename?: 'UsersDocAccessFields_tenants_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Update = {
+  __typename?: 'UsersDocAccessFields_tenants_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Id = {
+  __typename?: 'UsersDocAccessFields_tenants_id';
+  create?: Maybe<UsersDocAccessFields_Tenants_Id_Create>;
+  delete?: Maybe<UsersDocAccessFields_Tenants_Id_Delete>;
+  read?: Maybe<UsersDocAccessFields_Tenants_Id_Read>;
+  update?: Maybe<UsersDocAccessFields_Tenants_Id_Update>;
+};
+
+export type UsersDocAccessFields_Tenants_Id_Create = {
+  __typename?: 'UsersDocAccessFields_tenants_id_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Id_Delete = {
+  __typename?: 'UsersDocAccessFields_tenants_id_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Id_Read = {
+  __typename?: 'UsersDocAccessFields_tenants_id_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Id_Update = {
+  __typename?: 'UsersDocAccessFields_tenants_id_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Roles = {
+  __typename?: 'UsersDocAccessFields_tenants_roles';
+  create?: Maybe<UsersDocAccessFields_Tenants_Roles_Create>;
+  delete?: Maybe<UsersDocAccessFields_Tenants_Roles_Delete>;
+  read?: Maybe<UsersDocAccessFields_Tenants_Roles_Read>;
+  update?: Maybe<UsersDocAccessFields_Tenants_Roles_Update>;
+};
+
+export type UsersDocAccessFields_Tenants_Roles_Create = {
+  __typename?: 'UsersDocAccessFields_tenants_roles_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Roles_Delete = {
+  __typename?: 'UsersDocAccessFields_tenants_roles_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Roles_Read = {
+  __typename?: 'UsersDocAccessFields_tenants_roles_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Roles_Update = {
+  __typename?: 'UsersDocAccessFields_tenants_roles_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Tenant = {
+  __typename?: 'UsersDocAccessFields_tenants_tenant';
+  create?: Maybe<UsersDocAccessFields_Tenants_Tenant_Create>;
+  delete?: Maybe<UsersDocAccessFields_Tenants_Tenant_Delete>;
+  read?: Maybe<UsersDocAccessFields_Tenants_Tenant_Read>;
+  update?: Maybe<UsersDocAccessFields_Tenants_Tenant_Update>;
+};
+
+export type UsersDocAccessFields_Tenants_Tenant_Create = {
+  __typename?: 'UsersDocAccessFields_tenants_tenant_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Tenant_Delete = {
+  __typename?: 'UsersDocAccessFields_tenants_tenant_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Tenant_Read = {
+  __typename?: 'UsersDocAccessFields_tenants_tenant_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersDocAccessFields_Tenants_Tenant_Update = {
+  __typename?: 'UsersDocAccessFields_tenants_tenant_Update';
   permission: Scalars['Boolean']['output'];
 };
 
@@ -5164,7 +5783,12 @@ export type UsersFields = {
   __typename?: 'UsersFields';
   createdAt?: Maybe<UsersFields_CreatedAt>;
   email?: Maybe<UsersFields_Email>;
+  firstName?: Maybe<UsersFields_FirstName>;
+  lastLoggedInTenant?: Maybe<UsersFields_LastLoggedInTenant>;
+  lastName?: Maybe<UsersFields_LastName>;
   password?: Maybe<UsersFields_Password>;
+  roles?: Maybe<UsersFields_Roles>;
+  tenants?: Maybe<UsersFields_Tenants>;
   updatedAt?: Maybe<UsersFields_UpdatedAt>;
 };
 
@@ -5224,6 +5848,90 @@ export type UsersFields_Email_Update = {
   permission: Scalars['Boolean']['output'];
 };
 
+export type UsersFields_FirstName = {
+  __typename?: 'UsersFields_firstName';
+  create?: Maybe<UsersFields_FirstName_Create>;
+  delete?: Maybe<UsersFields_FirstName_Delete>;
+  read?: Maybe<UsersFields_FirstName_Read>;
+  update?: Maybe<UsersFields_FirstName_Update>;
+};
+
+export type UsersFields_FirstName_Create = {
+  __typename?: 'UsersFields_firstName_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_FirstName_Delete = {
+  __typename?: 'UsersFields_firstName_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_FirstName_Read = {
+  __typename?: 'UsersFields_firstName_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_FirstName_Update = {
+  __typename?: 'UsersFields_firstName_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_LastLoggedInTenant = {
+  __typename?: 'UsersFields_lastLoggedInTenant';
+  create?: Maybe<UsersFields_LastLoggedInTenant_Create>;
+  delete?: Maybe<UsersFields_LastLoggedInTenant_Delete>;
+  read?: Maybe<UsersFields_LastLoggedInTenant_Read>;
+  update?: Maybe<UsersFields_LastLoggedInTenant_Update>;
+};
+
+export type UsersFields_LastLoggedInTenant_Create = {
+  __typename?: 'UsersFields_lastLoggedInTenant_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_LastLoggedInTenant_Delete = {
+  __typename?: 'UsersFields_lastLoggedInTenant_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_LastLoggedInTenant_Read = {
+  __typename?: 'UsersFields_lastLoggedInTenant_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_LastLoggedInTenant_Update = {
+  __typename?: 'UsersFields_lastLoggedInTenant_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_LastName = {
+  __typename?: 'UsersFields_lastName';
+  create?: Maybe<UsersFields_LastName_Create>;
+  delete?: Maybe<UsersFields_LastName_Delete>;
+  read?: Maybe<UsersFields_LastName_Read>;
+  update?: Maybe<UsersFields_LastName_Update>;
+};
+
+export type UsersFields_LastName_Create = {
+  __typename?: 'UsersFields_lastName_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_LastName_Delete = {
+  __typename?: 'UsersFields_lastName_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_LastName_Read = {
+  __typename?: 'UsersFields_lastName_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_LastName_Update = {
+  __typename?: 'UsersFields_lastName_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
 export type UsersFields_Password = {
   __typename?: 'UsersFields_password';
   create?: Maybe<UsersFields_Password_Create>;
@@ -5249,6 +5957,154 @@ export type UsersFields_Password_Read = {
 
 export type UsersFields_Password_Update = {
   __typename?: 'UsersFields_password_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Roles = {
+  __typename?: 'UsersFields_roles';
+  create?: Maybe<UsersFields_Roles_Create>;
+  delete?: Maybe<UsersFields_Roles_Delete>;
+  read?: Maybe<UsersFields_Roles_Read>;
+  update?: Maybe<UsersFields_Roles_Update>;
+};
+
+export type UsersFields_Roles_Create = {
+  __typename?: 'UsersFields_roles_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Roles_Delete = {
+  __typename?: 'UsersFields_roles_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Roles_Read = {
+  __typename?: 'UsersFields_roles_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Roles_Update = {
+  __typename?: 'UsersFields_roles_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants = {
+  __typename?: 'UsersFields_tenants';
+  create?: Maybe<UsersFields_Tenants_Create>;
+  delete?: Maybe<UsersFields_Tenants_Delete>;
+  fields?: Maybe<UsersFields_Tenants_Fields>;
+  read?: Maybe<UsersFields_Tenants_Read>;
+  update?: Maybe<UsersFields_Tenants_Update>;
+};
+
+export type UsersFields_Tenants_Create = {
+  __typename?: 'UsersFields_tenants_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Delete = {
+  __typename?: 'UsersFields_tenants_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Fields = {
+  __typename?: 'UsersFields_tenants_Fields';
+  id?: Maybe<UsersFields_Tenants_Id>;
+  roles?: Maybe<UsersFields_Tenants_Roles>;
+  tenant?: Maybe<UsersFields_Tenants_Tenant>;
+};
+
+export type UsersFields_Tenants_Read = {
+  __typename?: 'UsersFields_tenants_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Update = {
+  __typename?: 'UsersFields_tenants_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Id = {
+  __typename?: 'UsersFields_tenants_id';
+  create?: Maybe<UsersFields_Tenants_Id_Create>;
+  delete?: Maybe<UsersFields_Tenants_Id_Delete>;
+  read?: Maybe<UsersFields_Tenants_Id_Read>;
+  update?: Maybe<UsersFields_Tenants_Id_Update>;
+};
+
+export type UsersFields_Tenants_Id_Create = {
+  __typename?: 'UsersFields_tenants_id_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Id_Delete = {
+  __typename?: 'UsersFields_tenants_id_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Id_Read = {
+  __typename?: 'UsersFields_tenants_id_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Id_Update = {
+  __typename?: 'UsersFields_tenants_id_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Roles = {
+  __typename?: 'UsersFields_tenants_roles';
+  create?: Maybe<UsersFields_Tenants_Roles_Create>;
+  delete?: Maybe<UsersFields_Tenants_Roles_Delete>;
+  read?: Maybe<UsersFields_Tenants_Roles_Read>;
+  update?: Maybe<UsersFields_Tenants_Roles_Update>;
+};
+
+export type UsersFields_Tenants_Roles_Create = {
+  __typename?: 'UsersFields_tenants_roles_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Roles_Delete = {
+  __typename?: 'UsersFields_tenants_roles_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Roles_Read = {
+  __typename?: 'UsersFields_tenants_roles_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Roles_Update = {
+  __typename?: 'UsersFields_tenants_roles_Update';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Tenant = {
+  __typename?: 'UsersFields_tenants_tenant';
+  create?: Maybe<UsersFields_Tenants_Tenant_Create>;
+  delete?: Maybe<UsersFields_Tenants_Tenant_Delete>;
+  read?: Maybe<UsersFields_Tenants_Tenant_Read>;
+  update?: Maybe<UsersFields_Tenants_Tenant_Update>;
+};
+
+export type UsersFields_Tenants_Tenant_Create = {
+  __typename?: 'UsersFields_tenants_tenant_Create';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Tenant_Delete = {
+  __typename?: 'UsersFields_tenants_tenant_Delete';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Tenant_Read = {
+  __typename?: 'UsersFields_tenants_tenant_Read';
+  permission: Scalars['Boolean']['output'];
+};
+
+export type UsersFields_Tenants_Tenant_Update = {
+  __typename?: 'UsersFields_tenants_tenant_Update';
   permission: Scalars['Boolean']['output'];
 };
 
@@ -5366,6 +6222,11 @@ export type CountPages = {
 
 export type CountPayloadPreferences = {
   __typename?: 'countPayloadPreferences';
+  totalDocs?: Maybe<Scalars['Int']['output']>;
+};
+
+export type CountTenants = {
+  __typename?: 'countTenants';
   totalDocs?: Maybe<Scalars['Int']['output']>;
 };
 
@@ -5577,9 +6438,10 @@ export type MutationPageInput = {
   createdAt?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   keywords?: InputMaybe<Scalars['String']['input']>;
-  layout?: InputMaybe<Scalars['JSON']['input']>;
   pageTitle: Scalars['String']['input'];
+  richText: Scalars['JSON']['input'];
   slug?: InputMaybe<Scalars['String']['input']>;
+  tenant?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['String']['input']>;
 };
@@ -5588,9 +6450,10 @@ export type MutationPageUpdateInput = {
   createdAt?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   keywords?: InputMaybe<Scalars['String']['input']>;
-  layout?: InputMaybe<Scalars['JSON']['input']>;
   pageTitle?: InputMaybe<Scalars['String']['input']>;
+  richText?: InputMaybe<Scalars['JSON']['input']>;
   slug?: InputMaybe<Scalars['String']['input']>;
+  tenant?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['String']['input']>;
 };
@@ -5611,30 +6474,76 @@ export type MutationPayloadPreferenceUpdateInput = {
   value?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type MutationTenantInput = {
+  createdAt?: InputMaybe<Scalars['String']['input']>;
+  domains?: InputMaybe<Array<InputMaybe<MutationTenant_DomainsInput>>>;
+  name: Scalars['String']['input'];
+  updatedAt?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type MutationTenantUpdateInput = {
+  createdAt?: InputMaybe<Scalars['String']['input']>;
+  domains?: InputMaybe<Array<InputMaybe<MutationTenantUpdate_DomainsInput>>>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  updatedAt?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type MutationTenantUpdate_DomainsInput = {
+  domain: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type MutationTenant_DomainsInput = {
+  domain: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type MutationUserInput = {
   createdAt?: InputMaybe<Scalars['String']['input']>;
   email: Scalars['String']['input'];
+  firstName?: InputMaybe<Scalars['String']['input']>;
   hash?: InputMaybe<Scalars['String']['input']>;
+  lastLoggedInTenant?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']['input']>;
   lockUntil?: InputMaybe<Scalars['String']['input']>;
   loginAttempts?: InputMaybe<Scalars['Float']['input']>;
   password: Scalars['String']['input'];
   resetPasswordExpiration?: InputMaybe<Scalars['String']['input']>;
   resetPasswordToken?: InputMaybe<Scalars['String']['input']>;
+  roles?: InputMaybe<Array<InputMaybe<User_Roles_MutationInput>>>;
   salt?: InputMaybe<Scalars['String']['input']>;
+  tenants?: InputMaybe<Array<InputMaybe<MutationUser_TenantsInput>>>;
   updatedAt?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type MutationUserUpdateInput = {
   createdAt?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']['input']>;
   hash?: InputMaybe<Scalars['String']['input']>;
+  lastLoggedInTenant?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']['input']>;
   lockUntil?: InputMaybe<Scalars['String']['input']>;
   loginAttempts?: InputMaybe<Scalars['Float']['input']>;
   password?: InputMaybe<Scalars['String']['input']>;
   resetPasswordExpiration?: InputMaybe<Scalars['String']['input']>;
   resetPasswordToken?: InputMaybe<Scalars['String']['input']>;
+  roles?: InputMaybe<Array<InputMaybe<UserUpdate_Roles_MutationInput>>>;
   salt?: InputMaybe<Scalars['String']['input']>;
+  tenants?: InputMaybe<Array<InputMaybe<MutationUserUpdate_TenantsInput>>>;
   updatedAt?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type MutationUserUpdate_TenantsInput = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  roles: Array<InputMaybe<UserUpdate_Tenants_Roles_MutationInput>>;
+  tenant?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type MutationUser_TenantsInput = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  roles: Array<InputMaybe<User_Tenants_Roles_MutationInput>>;
+  tenant?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type PagesAccess = {
@@ -5671,6 +6580,24 @@ export type Payload_PreferencesDocAccess = {
   fields?: Maybe<PayloadPreferencesDocAccessFields>;
   read?: Maybe<PayloadPreferencesReadDocAccess>;
   update?: Maybe<PayloadPreferencesUpdateDocAccess>;
+};
+
+export type TenantsAccess = {
+  __typename?: 'tenantsAccess';
+  create?: Maybe<TenantsCreateAccess>;
+  delete?: Maybe<TenantsDeleteAccess>;
+  fields?: Maybe<TenantsFields>;
+  read?: Maybe<TenantsReadAccess>;
+  update?: Maybe<TenantsUpdateAccess>;
+};
+
+export type TenantsDocAccess = {
+  __typename?: 'tenantsDocAccess';
+  create?: Maybe<TenantsCreateDocAccess>;
+  delete?: Maybe<TenantsDeleteDocAccess>;
+  fields?: Maybe<TenantsDocAccessFields>;
+  read?: Maybe<TenantsReadDocAccess>;
+  update?: Maybe<TenantsUpdateDocAccess>;
 };
 
 export type UsersAccess = {

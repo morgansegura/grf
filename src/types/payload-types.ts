@@ -13,6 +13,7 @@ export interface Config {
     media: Media;
     pages: Page;
     users: User;
+    tenants: Tenant;
     "payload-preferences": PayloadPreference;
     "payload-migrations": PayloadMigration;
   };
@@ -92,80 +93,40 @@ export interface Page {
   id: string;
   pageTitle: string;
   slug?: string | null;
+  tenant?: (string | null) | Tenant;
   title?: string | null;
   description?: string | null;
   keywords?: string | null;
-  layout?:
-    | (
-        | {
-            backgroundColor?: ("none" | "red" | "blue" | "orange") | null;
-            columns?:
-              | {
-                  width: "oneThird" | "half" | "twoThirds" | "full";
-                  alignment: "left" | "center" | "right";
-                  content: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: string;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ("ltr" | "rtl") | null;
-                      format:
-                        | "left"
-                        | "start"
-                        | "center"
-                        | "right"
-                        | "end"
-                        | "justify"
-                        | "";
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  };
-                  id?: string | null;
-                }[]
-              | null;
-            accentLine?: boolean | null;
-            accentLineAlignment?: ("left" | "right") | null;
-            paddingTop?: ("none" | "small" | "medium" | "large") | null;
-            paddingBottom?: ("none" | "small" | "medium" | "large") | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: "content";
-          }
-        | {
-            image: string | Media;
-            type?: ("normal" | "fullscreen" | "wide") | null;
-            caption?: {
-              root: {
-                type: string;
-                children: {
-                  type: string;
-                  version: number;
-                  [k: string]: unknown;
-                }[];
-                direction: ("ltr" | "rtl") | null;
-                format:
-                  | "left"
-                  | "start"
-                  | "center"
-                  | "right"
-                  | "end"
-                  | "justify"
-                  | "";
-                indent: number;
-                version: number;
-              };
-              [k: string]: unknown;
-            } | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: "image";
-          }
-      )[]
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tenants".
+ */
+export interface Tenant {
+  id: string;
+  name: string;
+  domains?:
+    | {
+        domain: string;
+        id?: string | null;
+      }[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -176,6 +137,17 @@ export interface Page {
  */
 export interface User {
   id: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  roles: ("super-admin" | "user")[];
+  tenants?:
+    | {
+        tenant: string | Tenant;
+        roles: ("admin" | "user")[];
+        id?: string | null;
+      }[]
+    | null;
+  lastLoggedInTenant?: (string | null) | Tenant;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -226,7 +198,3 @@ export interface PayloadMigration {
   updatedAt: string;
   createdAt: string;
 }
-
-// declare module 'payload' {
-//   export interface GeneratedTypes extends Config {}
-// }

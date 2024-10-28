@@ -1,18 +1,15 @@
 import Hero from '$src/blocks/hero/hero.svelte';
-import RichText from '$src/blocks/rich-text/rich-text.svelte';
-import Content from '$src/blocks/content/content.svelte';
+import Divider from '$src/lib/components/divider/divider.svelte';
 
-export type BlockIndexTypes = 'hero' | 'richText' | 'content';
+export type BlockIndexTypes = 'divider' | 'hero';
 export interface BlockProps {
+	divider: typeof Divider;
 	hero: typeof Hero;
-	richText: typeof RichText;
-	content: typeof Content;
 }
 
 const blocks: BlockProps = {
-	content: Content,
-	hero: Hero,
-	richText: RichText
+	divider: Divider,
+	hero: Hero
 };
 
 export default blocks;

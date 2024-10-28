@@ -33,14 +33,18 @@ const COMPONENT_TEMPLATE = (name: string) => `
 
 			interface ${name}Props {
 				props?: string
+				className?: string
 			}
 
 			export let props: ${name}Props['props'] = undefined;
 
+			let className: ${name}Props['className'] = $$restProps.class;
+			export { className as class };
+
 		</script>
 
 
-		<div class="${toKebabCase(name)}" {...$$restProps}>
+		<div class="${toKebabCase(name)} {className}" {...$$restProps}>
 		  <slot />
 		</div>
 `;

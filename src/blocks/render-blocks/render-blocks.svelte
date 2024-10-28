@@ -8,7 +8,9 @@
 	interface Block {
 		blockType: BlockIndexTypes;
 		[key: string]: unknown;
-		props: Record<string, unknown>;
+		props: {
+			appreance: any;
+		};
 	}
 
 	interface RenderBlocksProps {
@@ -25,8 +27,13 @@
 	}
 </script>
 
-{#each layout as block}
-	<When condition={Boolean(getBlockComponent(block.blockType))}>
-		<svelte:component this={getBlockComponent(block.blockType)} {...block} />
-	</When>
-{/each}
+<When condition={Boolean(layout?.length)}>
+	{#each layout as block}
+		{console.log(layout)}
+		{#if Boolean(getBlockComponent(block.blockType))}
+			<svelte:component this={getBlockComponent(block.blockType)} {...block.props} />
+		{:else}
+			<p>Dangit!</p>
+		{/if}
+	{/each}
+</When>
